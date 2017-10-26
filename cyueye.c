@@ -1098,6 +1098,7 @@ static const char __pyx_k_displaymode[] = "displaymode";
 static const char __pyx_k_exit_camera[] = "exit_camera";
 static const char __pyx_k_init_camera[] = "_init_camera";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
+static const char __pyx_k_set_image_mem[] = "set_image_mem";
 static const char __pyx_k_set_color_mode[] = "set_color_mode";
 static const char __pyx_k_is_no_colormode[] = " is no colormode";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
@@ -1107,7 +1108,6 @@ static const char __pyx_k_is_no_displaymode[] = " is no displaymode";
 static const char __pyx_k_Status_exit_camera[] = "Status exit_camera: ";
 static const char __pyx_k_Status_init_Camera[] = "Status init_Camera: ";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_Status_freeze_video[] = "Status freeze_video: ";
 static const char __pyx_k_Status_set_image_mem[] = "Status set_image_mem: ";
 static const char __pyx_k_Status_set_color_mode[] = "Status set_color_mode: ";
 static const char __pyx_k_get_supported_formats[] = "get_supported_formats";
@@ -1119,7 +1119,6 @@ static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __red
 static PyObject *__pyx_kp_s_Format;
 static PyObject *__pyx_kp_s_Status_alloc_image_mem;
 static PyObject *__pyx_kp_s_Status_exit_camera;
-static PyObject *__pyx_kp_s_Status_freeze_video;
 static PyObject *__pyx_kp_s_Status_get_supported_formats;
 static PyObject *__pyx_kp_s_Status_init_Camera;
 static PyObject *__pyx_kp_s_Status_set_color_mode;
@@ -1156,6 +1155,7 @@ static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_set_color_mode;
 static PyObject *__pyx_n_s_set_display_mode;
 static PyObject *__pyx_n_s_set_format;
+static PyObject *__pyx_n_s_set_image_mem;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_test;
@@ -2502,8 +2502,8 @@ static PyObject *__pyx_pf_6cyueye_3Cam_14get_supported_formats(struct __pyx_obj_
  *         return ret
  * 
  *     def alloc_image_mem(self):             # <<<<<<<<<<<<<<
- *         self.bitspixel = 24
- *         self.width = 1920
+ *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
+ *         print("Status alloc_image_mem: ", ret)
  */
 
 /* Python wrapper */
@@ -2520,106 +2520,111 @@ static PyObject *__pyx_pw_6cyueye_3Cam_17alloc_image_mem(PyObject *__pyx_v_self,
 }
 
 static PyObject *__pyx_pf_6cyueye_3Cam_16alloc_image_mem(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {
-  int __pyx_v_ret;
+  PyObject *__pyx_v_ret = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("alloc_image_mem", 0);
 
   /* "cyueye.pyx":128
  * 
  *     def alloc_image_mem(self):
- *         self.bitspixel = 24             # <<<<<<<<<<<<<<
- *         self.width = 1920
- *         self.height = 1080
+ *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)             # <<<<<<<<<<<<<<
+ *         print("Status alloc_image_mem: ", ret)
+ *         ret = self.set_image_mem()
  */
-  __pyx_v_self->bitspixel = 24;
+  __pyx_t_1 = __Pyx_PyInt_From_int(is_AllocImageMem(__pyx_v_self->hCam, __pyx_v_self->width, __pyx_v_self->height, __pyx_v_self->bitspixel, (&__pyx_v_self->pcImgMem), (&__pyx_v_self->pid))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_ret = __pyx_t_1;
+  __pyx_t_1 = 0;
 
   /* "cyueye.pyx":129
  *     def alloc_image_mem(self):
- *         self.bitspixel = 24
- *         self.width = 1920             # <<<<<<<<<<<<<<
- *         self.height = 1080
- *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
- */
-  __pyx_v_self->width = 0x780;
-
-  /* "cyueye.pyx":130
- *         self.bitspixel = 24
- *         self.width = 1920
- *         self.height = 1080             # <<<<<<<<<<<<<<
- *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
- *         print("Status alloc_image_mem: ", ret)
- */
-  __pyx_v_self->height = 0x438;
-
-  /* "cyueye.pyx":131
- *         self.width = 1920
- *         self.height = 1080
- *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)             # <<<<<<<<<<<<<<
- *         print("Status alloc_image_mem: ", ret)
- *         return ret
- */
-  __pyx_v_ret = is_AllocImageMem(__pyx_v_self->hCam, __pyx_v_self->width, __pyx_v_self->height, __pyx_v_self->bitspixel, (&__pyx_v_self->pcImgMem), (&__pyx_v_self->pid));
-
-  /* "cyueye.pyx":132
- *         self.height = 1080
  *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
  *         print("Status alloc_image_mem: ", ret)             # <<<<<<<<<<<<<<
+ *         ret = self.set_image_mem()
+ *         return ret
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_kp_s_Status_alloc_image_mem);
+  __Pyx_GIVEREF(__pyx_kp_s_Status_alloc_image_mem);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_s_Status_alloc_image_mem);
+  __Pyx_INCREF(__pyx_v_ret);
+  __Pyx_GIVEREF(__pyx_v_ret);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_ret);
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "cyueye.pyx":130
+ *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
+ *         print("Status alloc_image_mem: ", ret)
+ *         ret = self.set_image_mem()             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_image_mem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
+    }
+  }
+  if (__pyx_t_3) {
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+  }
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_kp_s_Status_alloc_image_mem);
-  __Pyx_GIVEREF(__pyx_kp_s_Status_alloc_image_mem);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_s_Status_alloc_image_mem);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(__pyx_v_ret, __pyx_t_2);
+  __pyx_t_2 = 0;
 
-  /* "cyueye.pyx":133
- *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
+  /* "cyueye.pyx":131
  *         print("Status alloc_image_mem: ", ret)
+ *         ret = self.set_image_mem()
  *         return ret             # <<<<<<<<<<<<<<
  * 
  *     def set_image_mem(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __Pyx_INCREF(__pyx_v_ret);
+  __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
   /* "cyueye.pyx":127
  *         return ret
  * 
  *     def alloc_image_mem(self):             # <<<<<<<<<<<<<<
- *         self.bitspixel = 24
- *         self.width = 1920
+ *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
+ *         print("Status alloc_image_mem: ", ret)
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("cyueye.Cam.alloc_image_mem", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_ret);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "cyueye.pyx":135
+/* "cyueye.pyx":133
  *         return ret
  * 
  *     def set_image_mem(self):             # <<<<<<<<<<<<<<
@@ -2648,7 +2653,7 @@ static PyObject *__pyx_pf_6cyueye_3Cam_18set_image_mem(struct __pyx_obj_6cyueye_
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("set_image_mem", 0);
 
-  /* "cyueye.pyx":136
+  /* "cyueye.pyx":134
  * 
  *     def set_image_mem(self):
  *         ret = is_SetImageMem(self.hCam, self.pcImgMem, self.pid)             # <<<<<<<<<<<<<<
@@ -2657,16 +2662,16 @@ static PyObject *__pyx_pf_6cyueye_3Cam_18set_image_mem(struct __pyx_obj_6cyueye_
  */
   __pyx_v_ret = is_SetImageMem(__pyx_v_self->hCam, __pyx_v_self->pcImgMem, __pyx_v_self->pid);
 
-  /* "cyueye.pyx":137
+  /* "cyueye.pyx":135
  *     def set_image_mem(self):
  *         ret = is_SetImageMem(self.hCam, self.pcImgMem, self.pid)
  *         print("Status set_image_mem: ", ret)             # <<<<<<<<<<<<<<
  * 
  *     def freeze_video(self):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_Status_set_image_mem);
   __Pyx_GIVEREF(__pyx_kp_s_Status_set_image_mem);
@@ -2674,12 +2679,12 @@ static PyObject *__pyx_pf_6cyueye_3Cam_18set_image_mem(struct __pyx_obj_6cyueye_
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cyueye.pyx":135
+  /* "cyueye.pyx":133
  *         return ret
  * 
  *     def set_image_mem(self):             # <<<<<<<<<<<<<<
@@ -2701,7 +2706,7 @@ static PyObject *__pyx_pf_6cyueye_3Cam_18set_image_mem(struct __pyx_obj_6cyueye_
   return __pyx_r;
 }
 
-/* "cyueye.pyx":139
+/* "cyueye.pyx":137
  *         print("Status set_image_mem: ", ret)
  * 
  *     def freeze_video(self):             # <<<<<<<<<<<<<<
@@ -2723,45 +2728,21 @@ static PyObject *__pyx_pw_6cyueye_3Cam_21freeze_video(PyObject *__pyx_v_self, CY
 }
 
 static PyObject *__pyx_pf_6cyueye_3Cam_20freeze_video(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {
-  int __pyx_v_ret;
+  CYTHON_UNUSED int __pyx_v_ret;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("freeze_video", 0);
 
-  /* "cyueye.pyx":141
+  /* "cyueye.pyx":139
  *     def freeze_video(self):
  *         #self.set_image_mem()
  *         ret = is_FreezeVideo(self.hCam, 0)             # <<<<<<<<<<<<<<
- *         print("Status freeze_video: ", ret)
- * 
- */
-  __pyx_v_ret = is_FreezeVideo(__pyx_v_self->hCam, 0);
-
-  /* "cyueye.pyx":142
- *         #self.set_image_mem()
- *         ret = is_FreezeVideo(self.hCam, 0)
- *         print("Status freeze_video: ", ret)             # <<<<<<<<<<<<<<
  * 
  *     def freeze_to_numpy(self):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_kp_s_Status_freeze_video);
-  __Pyx_GIVEREF(__pyx_kp_s_Status_freeze_video);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_s_Status_freeze_video);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_ret = is_FreezeVideo(__pyx_v_self->hCam, 0);
 
-  /* "cyueye.pyx":139
+  /* "cyueye.pyx":137
  *         print("Status set_image_mem: ", ret)
  * 
  *     def freeze_video(self):             # <<<<<<<<<<<<<<
@@ -2771,20 +2752,13 @@ static PyObject *__pyx_pf_6cyueye_3Cam_20freeze_video(struct __pyx_obj_6cyueye_C
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("cyueye.Cam.freeze_video", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "cyueye.pyx":144
- *         print("Status freeze_video: ", ret)
+/* "cyueye.pyx":141
+ *         ret = is_FreezeVideo(self.hCam, 0)
  * 
  *     def freeze_to_numpy(self):             # <<<<<<<<<<<<<<
  *         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
@@ -2822,23 +2796,23 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
   int __pyx_t_9;
   __Pyx_RefNannySetupContext("freeze_to_numpy", 0);
 
-  /* "cyueye.pyx":145
+  /* "cyueye.pyx":142
  * 
  *     def freeze_to_numpy(self):
  *         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)             # <<<<<<<<<<<<<<
  *         cdef int i, j, mem_marker = 0
  *         for i in range(len(pic)):
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->height); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->height); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_v_self->width * 3)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_v_self->width * 3)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -2846,21 +2820,21 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
   PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2868,7 +2842,7 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
   __pyx_v_pic = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "cyueye.pyx":146
+  /* "cyueye.pyx":143
  *     def freeze_to_numpy(self):
  *         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
  *         cdef int i, j, mem_marker = 0             # <<<<<<<<<<<<<<
@@ -2877,71 +2851,49 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
  */
   __pyx_v_mem_marker = 0;
 
-  /* "cyueye.pyx":147
+  /* "cyueye.pyx":144
  *         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
  *         cdef int i, j, mem_marker = 0
  *         for i in range(len(pic)):             # <<<<<<<<<<<<<<
  *             for j in range(len(pic[i])):
- *             #    if (j+1)%4 is 0:
+ *                 pic[i][j]=self.pcImgMem[mem_marker]
  */
-  __pyx_t_6 = PyObject_Length(__pyx_v_pic); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_6 = PyObject_Length(__pyx_v_pic); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 144, __pyx_L1_error)
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "cyueye.pyx":148
+    /* "cyueye.pyx":145
  *         cdef int i, j, mem_marker = 0
  *         for i in range(len(pic)):
  *             for j in range(len(pic[i])):             # <<<<<<<<<<<<<<
- *             #    if (j+1)%4 is 0:
- *             #        continue
+ *                 pic[i][j]=self.pcImgMem[mem_marker]
+ *                 mem_marker += 1
  */
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_pic, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_pic, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = PyObject_Length(__pyx_t_5); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 148, __pyx_L1_error)
+    __pyx_t_8 = PyObject_Length(__pyx_t_5); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 145, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_j = __pyx_t_9;
 
-      /* "cyueye.pyx":152
- *             #        continue
- *             #    else:
+      /* "cyueye.pyx":146
+ *         for i in range(len(pic)):
+ *             for j in range(len(pic[i])):
  *                 pic[i][j]=self.pcImgMem[mem_marker]             # <<<<<<<<<<<<<<
- *                 print(pic[i][j])
- *                 mem_marker += 1
- */
-      __pyx_t_5 = __Pyx_PyInt_From_char((__pyx_v_self->pcImgMem[__pyx_v_mem_marker])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_pic, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      if (unlikely(__Pyx_SetItemInt(__pyx_t_4, __pyx_v_j, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 152, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-      /* "cyueye.pyx":153
- *             #    else:
- *                 pic[i][j]=self.pcImgMem[mem_marker]
- *                 print(pic[i][j])             # <<<<<<<<<<<<<<
  *                 mem_marker += 1
  *         return pic
  */
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_pic, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_char((__pyx_v_self->pcImgMem[__pyx_v_mem_marker])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 146, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_5, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_pic, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_4);
-      PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
-      __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (unlikely(__Pyx_SetItemInt(__pyx_t_4, __pyx_v_j, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 146, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "cyueye.pyx":154
+      /* "cyueye.pyx":147
+ *             for j in range(len(pic[i])):
  *                 pic[i][j]=self.pcImgMem[mem_marker]
- *                 print(pic[i][j])
  *                 mem_marker += 1             # <<<<<<<<<<<<<<
  *         return pic
  */
@@ -2949,8 +2901,8 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
     }
   }
 
-  /* "cyueye.pyx":155
- *                 print(pic[i][j])
+  /* "cyueye.pyx":148
+ *                 pic[i][j]=self.pcImgMem[mem_marker]
  *                 mem_marker += 1
  *         return pic             # <<<<<<<<<<<<<<
  */
@@ -2959,8 +2911,8 @@ static PyObject *__pyx_pf_6cyueye_3Cam_22freeze_to_numpy(struct __pyx_obj_6cyuey
   __pyx_r = __pyx_v_pic;
   goto __pyx_L0;
 
-  /* "cyueye.pyx":144
- *         print("Status freeze_video: ", ret)
+  /* "cyueye.pyx":141
+ *         ret = is_FreezeVideo(self.hCam, 0)
  * 
  *     def freeze_to_numpy(self):             # <<<<<<<<<<<<<<
  *         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
@@ -3243,7 +3195,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Format, __pyx_k_Format, sizeof(__pyx_k_Format), 0, 0, 1, 0},
   {&__pyx_kp_s_Status_alloc_image_mem, __pyx_k_Status_alloc_image_mem, sizeof(__pyx_k_Status_alloc_image_mem), 0, 0, 1, 0},
   {&__pyx_kp_s_Status_exit_camera, __pyx_k_Status_exit_camera, sizeof(__pyx_k_Status_exit_camera), 0, 0, 1, 0},
-  {&__pyx_kp_s_Status_freeze_video, __pyx_k_Status_freeze_video, sizeof(__pyx_k_Status_freeze_video), 0, 0, 1, 0},
   {&__pyx_kp_s_Status_get_supported_formats, __pyx_k_Status_get_supported_formats, sizeof(__pyx_k_Status_get_supported_formats), 0, 0, 1, 0},
   {&__pyx_kp_s_Status_init_Camera, __pyx_k_Status_init_Camera, sizeof(__pyx_k_Status_init_Camera), 0, 0, 1, 0},
   {&__pyx_kp_s_Status_set_color_mode, __pyx_k_Status_set_color_mode, sizeof(__pyx_k_Status_set_color_mode), 0, 0, 1, 0},
@@ -3280,6 +3231,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_set_color_mode, __pyx_k_set_color_mode, sizeof(__pyx_k_set_color_mode), 0, 0, 1, 1},
   {&__pyx_n_s_set_display_mode, __pyx_k_set_display_mode, sizeof(__pyx_k_set_display_mode), 0, 0, 1, 1},
   {&__pyx_n_s_set_format, __pyx_k_set_format, sizeof(__pyx_k_set_format), 0, 0, 1, 1},
+  {&__pyx_n_s_set_image_mem, __pyx_k_set_image_mem, sizeof(__pyx_k_set_image_mem), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},

@@ -125,11 +125,9 @@ cdef class Cam:
         return ret
 
     def alloc_image_mem(self):
-        self.bitspixel = 24
-        self.width = 1920
-        self.height = 1080
         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
         print("Status alloc_image_mem: ", ret)
+        ret = self.set_image_mem()
         return ret
 
     def set_image_mem(self):
@@ -139,17 +137,12 @@ cdef class Cam:
     def freeze_video(self):
         #self.set_image_mem()
         ret = is_FreezeVideo(self.hCam, 0)
-        print("Status freeze_video: ", ret)
 
     def freeze_to_numpy(self):
         pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
         cdef int i, j, mem_marker = 0
         for i in range(len(pic)):
             for j in range(len(pic[i])):
-            #    if (j+1)%4 is 0:
-            #        continue
-            #    else:
                 pic[i][j]=self.pcImgMem[mem_marker]
-                print(pic[i][j])
                 mem_marker += 1
         return pic
