@@ -1,3 +1,4 @@
+# cython: profile=True
 from __future__ import print_function
 from libc.stdlib cimport malloc, free
 import numpy as np
@@ -135,14 +136,16 @@ cdef class Cam:
         print("Status set_image_mem: ", ret)
 
     def freeze_video(self):
-        #self.set_image_mem()
+        self.set_image_mem()
         ret = is_FreezeVideo(self.hCam, 0)
 
     def freeze_to_numpy(self):
-        pic = np.zeros([self.height, (self.width*3)], dtype=np.uint8)
-        cdef int i, j, mem_marker = 0
-        for i in range(len(pic)):
-            for j in range(len(pic[i])):
-                pic[i][j]=self.pcImgMem[mem_marker]
-                mem_marker += 1
+        cdef int colorspace = ((self.bitspixel+7)/8)
+        pic = np.zeros([self.height, self.width, colorspace], dtype=np.uint8)
+        cdef int i, j, k, mem_marker = 0
+        for i in range(self.height):
+            for j in range(self.width):
+                for k in range(colorspace):
+                    pic[i][j][k]=self.pcImgMem[mem_marker]
+                    mem_marker += 1
         return pic
