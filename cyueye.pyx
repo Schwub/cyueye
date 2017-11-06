@@ -2,6 +2,9 @@
 from __future__ import print_function
 from libc.stdlib cimport malloc, free
 import numpy as np
+cimport numpy as np
+
+np.import_array()
 
 cdef extern from 'ueye.h':
     # --- Structs ---
@@ -42,6 +45,7 @@ cdef extern from 'ueye.h':
     int is_SetImageMem(unsigned int hcam, char* pcImageMem, int pid_id)
     int is_FreezeVideo(unsigned int hcam, int wait)
     int is_GetImageMemPitch(unsigned int hcam, int* pitch)
+    int is_CaptureVideo(unsigned int hcam, int wait)
 
 cdef class Cam:
     cdef:
@@ -55,6 +59,7 @@ cdef class Cam:
         int height
         int format_id
         IMAGE_FORMAT_LIST* image_format_list
+        cdef np.npy_intp dims[3]
     def __cinit__(self, format_id, displaymode="dib", colormode="bgr8_packed"):
         self.hCam = 0
         self._init_camera()
@@ -65,8 +70,8 @@ cdef class Cam:
         self.set_color_mode(self.colormode)
         self.format_id = format_id
         self.set_format(self.format_id)
+        np.Py_INCREF(np.NPY_UINT8)
     def __dealloc__(self):
-        pass
         self.exit_camera()
 
     def _init_camera(self):
@@ -129,6 +134,10 @@ cdef class Cam:
         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
         print("Status alloc_image_mem: ", ret)
         ret = self.set_image_mem()
+        cdef int colorspace = ((self.bitspixel+7)/8)
+        self.dims[0]=self.height
+        self.dims[1]=self.width
+        self.dims[2]=colorspace
         return ret
 
     def set_image_mem(self):
@@ -136,16 +145,16 @@ cdef class Cam:
         print("Status set_image_mem: ", ret)
 
     def freeze_video(self):
-        self.set_image_mem()
+        #self.set_image_mem()
         ret = is_FreezeVideo(self.hCam, 0)
 
+    def capture_video(self):
+        ret = is_CaptureVideo(self.hCam, 0)
+
     def freeze_to_numpy(self):
-        cdef int colorspace = ((self.bitspixel+7)/8)
-        pic = np.zeros([self.height, self.width, colorspace], dtype=np.uint8)
-        cdef int i, j, k, mem_marker = 0
-        for i in range(self.height):
-            for j in range(self.width):
-                for k in range(colorspace):
-                    pic[i][j][k]=self.pcImgMem[mem_marker]
-                    mem_marker += 1
-        return pic
+        self.freeze_video()
+        return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
+
+    def video_to_numpy(self):
+        self.capture_video()
+        return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
