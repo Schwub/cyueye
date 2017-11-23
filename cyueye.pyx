@@ -1,10 +1,10 @@
-# cython: profile=True
+
 from __future__ import print_function
 from libc.stdlib cimport malloc, free
 import numpy as np
 cimport numpy as np
 
-np.import_array()
+
 
 cdef extern from 'ueye.h':
     # --- Structs ---
@@ -27,7 +27,35 @@ cdef extern from 'ueye.h':
         IMAGE_FORMAT_INFO FormatInfo[1]
     # --- Defines ---
     int IS_SET_DM_DIB
+        # --- Color Modes
+    int IS_CM_SENSOR_RAW16
+    int IS_CM_SENSOR_RAW12
+    int IS_CM_SENSOR_RAW10
+    int IS_CM_SENSOR_RAW8
+    int IS_CM_MONO16
+    int IS_CM_MONO12
+    int IS_CM_MONO10
+    int IS_CM_MONO8
+    int IS_CM_RGBA12_UNPACKED
+    int IS_CM_RGB12_UNPACKED
+    int IS_CM_RGB10_UNPACKED
+    int IS_CM_RGB10_PACKED
+    int IS_CM_RGBA8_PACKED
+    int IS_CM_RGBY8_PACKED
+    int IS_CM_RGB8_PACKED
+    int IS_CM_BGRA12_UNPACKED
+    int IS_CM_BGR12_UNPACKED
+    int IS_CM_BGR10_UNPACKED
+    int IS_CM_BGR10_PACKED
+    int IS_CM_BGRA8_PACKED
+    int IS_CM_BGRY8_PACKED
     int IS_CM_BGR8_PACKED
+    int IS_CM_BGR565_PACKED
+    int IS_CM_BGR5_PACKED
+    int IS_CM_UYVY_PACKED
+    int IS_CM_UYVY_MONO_PACKED
+    int IS_CM_UYVY_BAYER_PACKED
+    int IS_CM_CBYCRY_PACKED
     # --- Enums ---
     ctypedef enum IMAGE_FORMAT_CMD:
         IMGFRMT_CMD_GET_NUM_ENTRIES = 1
@@ -35,6 +63,14 @@ cdef extern from 'ueye.h':
         IMGFRMT_CMD_SET_FORMAT = 3
         IMGFRMT_CMD_GET_ARBITORY_AOI_SUPPORTED = 4
         IMGFRMT_CMD_GET_FORMAT_INFO = 5
+    ctypedef enum E_EXPOSURE_CMD:
+        IS_EXPOSURE_CMD_GET_EXPOSURE = 7
+        IS_EXPOSURE_CMD_SET_EXPOSURE = 12
+        IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MIN = 2
+        IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MAX = 3
+    ctypedef enum E_SATURATION_CMD:
+        SATURATION_CMD_GET_VALUE = 1
+        SATURATION_CMD_SET_VALUE = 6
     # --- Functions ---
     int is_InitCamera(unsigned int* hcam, void* hwand)
     int is_ExitCamera(unsigned int hcam)
@@ -46,6 +82,11 @@ cdef extern from 'ueye.h':
     int is_FreezeVideo(unsigned int hcam, int wait)
     int is_GetImageMemPitch(unsigned int hcam, int* pitch)
     int is_CaptureVideo(unsigned int hcam, int wait)
+    int is_FreeImageMem(unsigned int hcam, char* pcImageMem, int pid)
+    int is_Exposure(unsigned int hcam, unsigned int nCommand, void *pParam, unsigned int cbSizeOfParam)
+    int is_SetFrameRate(unsigned int hcam, double FPS, double *newFPS)
+    int is_Saturation(unsigned int hcam, unsigned int nCommand, void *pParam, unsigned int nSizeOfParam)
+    int is_SetSaturation(unsigned int hcam, int ChromU, int ChromV)
 
 cdef class Cam:
     cdef:
@@ -60,19 +101,27 @@ cdef class Cam:
         int format_id
         IMAGE_FORMAT_LIST* image_format_list
         cdef np.npy_intp dims[3]
-    def __cinit__(self, format_id, displaymode="dib", colormode="bgr8_packed"):
-        self.hCam = 0
+    def __cinit__(self, format_id, hcam=0, displaymode='dib', colormode="bgr8_packed"):
+        self.hCam = hcam
         self._init_camera()
         self.get_supported_formats()
         self.displaymode=displaymode
         self.colormode=colormode
-        self.set_display_mode(self.displaymode)
+        self.set_display_mode("dib")
         self.set_color_mode(self.colormode)
         self.format_id = format_id
         self.set_format(self.format_id)
+        self.alloc_image_mem()
+        self.realloc = False
         np.Py_INCREF(np.NPY_UINT8)
+        np.import_array()
     def __dealloc__(self):
+        self.free_image_mem()
         self.exit_camera()
+
+    def _check_deamon(self):
+        pass
+
 
     def _init_camera(self):
         ret = is_InitCamera(&self.hCam, NULL)
@@ -88,13 +137,24 @@ cdef class Cam:
         if mode is 'dib':
             ret = is_SetDisplayMode(self.hCam, IS_SET_DM_DIB)
         else:
-            raise ValueError(mode, " is no displaymode")
+            raise ValueError(mode, " is not supported")
         print("Status set_display_moded: ", ret)
 
     def set_color_mode(self, mode):
-        if mode is 'bgr8_packed':
-            ret = is_SetColorMode(self.hCam, IS_CM_BGR8_PACKED)
-            self.bitspixel = 24
+
+        class color_mode_options():
+            def __init__(self, ueye_camera_mode, bitspixel):
+                self.ueye_camera_mode = ueye_camera_mode
+                self.bitspixel = bitspixel
+
+        options = {
+            'bgr8_packed': color_mode_options(IS_CM_BGR8_PACKED, 24)
+        }
+
+
+        if mode in options:
+            ret = is_SetColorMode(self.hCam, options[mode].ueye_camera_mode)
+            self.bitspixel = options[mode].bitspixel
         else:
             raise ValueError(mode, " is no colormode")
         print("Status set_color_mode: ", ret)
@@ -130,6 +190,7 @@ cdef class Cam:
         print("Status get_supported_formats", ret)
         return ret
 
+
     def alloc_image_mem(self):
         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
         print("Status alloc_image_mem: ", ret)
@@ -138,15 +199,19 @@ cdef class Cam:
         self.dims[0]=self.height
         self.dims[1]=self.width
         self.dims[2]=colorspace
+        self.realloc = False
         return ret
+
+    def free_image_mem(self):
+        ret = is_FreeImageMem(self.hCam, self.pcImgMem, self.pid)
+        print('Status free_image_mem: ', ret)
 
     def set_image_mem(self):
         ret = is_SetImageMem(self.hCam, self.pcImgMem, self.pid)
         print("Status set_image_mem: ", ret)
 
     def freeze_video(self):
-        #self.set_image_mem()
-        ret = is_FreezeVideo(self.hCam, 0)
+        ret = is_FreezeVideo(self.hCam, 1)
 
     def capture_video(self):
         ret = is_CaptureVideo(self.hCam, 0)
@@ -156,5 +221,34 @@ cdef class Cam:
         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
 
     def video_to_numpy(self):
-        self.capture_video()
+        return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
+
+    def set_exposure(self, double exposure):
+        ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, &exposure, 8)
+        print(ret)
+        return ret
+
+    def get_exposure(self):
+        cdef double exposure
+        ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, &exposure, 8)
+        return exposure
+
+    def set_framerate(self, double framerate):
+        cdef double new_framrate
+        ret = is_SetFrameRate(self.hCam, framerate, &new_framrate)
+        return new_framrate, ret
+
+    def set_saturation(self, int saturation):
+       ret = is_SetSaturation(self.hCam, saturation, saturation)
+       return ret
+
+    def get_saturation(self):
+        pass
+
+    #Horus help functions
+    def read(self):
+        self.freeze_video()
+        return True, np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
+
+    def grab(self):
         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)

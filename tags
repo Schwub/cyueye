@@ -3,7 +3,7 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 BASE	cyueye.c	199;"	d	file:
 CYTHON_ABI	cyueye.c	26;"	d	file:
 CYTHON_ASSUME_SAFE_MACROS	cyueye.c	121;"	d	file:
@@ -138,7 +138,6 @@ Cam	cyueye.pyx	/^cdef class Cam:$/;"	c
 DECREF	cyueye.c	/^    void (*DECREF)(void*, PyObject*, int);$/;"	m	struct:__anon5	file:
 DL_EXPORT	cyueye.c	47;"	d	file:
 DL_IMPORT	cyueye.c	44;"	d	file:
-Extension	setup.py	/^from distutils.extension import Extension$/;"	i
 FinishContext	cyueye.c	/^    void (*FinishContext)(void**);$/;"	m	struct:__anon5	file:
 GIVEREF	cyueye.c	/^    void (*GIVEREF)(void*, PyObject*, int);$/;"	m	struct:__anon5	file:
 GOTREF	cyueye.c	/^    void (*GOTREF)(void*, PyObject*, int);$/;"	m	struct:__anon5	file:
@@ -149,6 +148,10 @@ IMGFRMT_CMD_GET_LIST	cyueye.pyx	/^        IMGFRMT_CMD_GET_LIST = 2$/;"	v
 IMGFRMT_CMD_GET_NUM_ENTRIES	cyueye.pyx	/^        IMGFRMT_CMD_GET_NUM_ENTRIES = 1$/;"	v
 IMGFRMT_CMD_SET_FORMAT	cyueye.pyx	/^        IMGFRMT_CMD_SET_FORMAT = 3$/;"	v
 INCREF	cyueye.c	/^    void (*INCREF)(void*, PyObject*, int);$/;"	m	struct:__anon5	file:
+IS_EXPOSURE_CMD_GET_EXPOSURE	cyueye.pyx	/^        IS_EXPOSURE_CMD_GET_EXPOSURE = 7$/;"	v
+IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MAX	cyueye.pyx	/^        IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MAX = 3$/;"	v
+IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MIN	cyueye.pyx	/^        IS_EXPOSURE_CMD_GET_EXPOSURE_RANGE_MIN = 2$/;"	v
+IS_EXPOSURE_CMD_SET_EXPOSURE	cyueye.pyx	/^        IS_EXPOSURE_CMD_SET_EXPOSURE = 12$/;"	v
 MASK	cyueye.c	200;"	d	file:
 METH_FASTCALL	cyueye.c	232;"	d	file:
 PY_LONG_LONG	cyueye.c	56;"	d	file:
@@ -193,6 +196,8 @@ Py_TPFLAGS_HAVE_FINALIZE	cyueye.c	228;"	d	file:
 Py_TPFLAGS_HAVE_INDEX	cyueye.c	222;"	d	file:
 Py_TPFLAGS_HAVE_NEWBUFFER	cyueye.c	225;"	d	file:
 Py_hash_t	cyueye.c	/^  typedef long Py_hash_t;$/;"	t	file:
+SATURATION_CMD_GET_VALUE	cyueye.pyx	/^        SATURATION_CMD_GET_VALUE = 1$/;"	v
+SATURATION_CMD_SET_VALUE	cyueye.pyx	/^        SATURATION_CMD_SET_VALUE = 6$/;"	v
 SHIFT	cyueye.c	198;"	d	file:
 SetupContext	cyueye.c	/^    void* (*SetupContext)(const char*, int, const char*);$/;"	m	struct:__anon5	file:
 _Complex_I	cyueye.c	764;"	d	file:
@@ -207,15 +212,15 @@ __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT	cyueye.c	557;"	d	file:
 __PYX_ERR	cyueye.c	524;"	d	file:
 __PYX_EXTERN_C	cyueye.c	531;"	d	file:
 __PYX_EXTERN_C	cyueye.c	533;"	d	file:
-__PYX_HAVE_API__cyueye	cyueye.c	538;"	d	file:
-__PYX_HAVE_RT_ImportModule	cyueye.c	9478;"	d	file:
-__PYX_HAVE_RT_ImportType	cyueye.c	9496;"	d	file:
-__PYX_HAVE__cyueye	cyueye.c	537;"	d	file:
+__PYX_HAVE_API__horus__engine__driver__cyueye__cyueye	cyueye.c	538;"	d	file:
+__PYX_HAVE_RT_ImportModule	cyueye.c	10118;"	d	file:
+__PYX_HAVE_RT_ImportType	cyueye.c	10136;"	d	file:
+__PYX_HAVE__horus__engine__driver__cyueye__cyueye	cyueye.c	537;"	d	file:
 __PYX_NAN	cyueye.c	/^static CYTHON_INLINE float __PYX_NAN() {$/;"	f	file:
 __PYX_NAN	cyueye.c	509;"	d	file:
-__PYX_VERIFY_RETURN_INT	cyueye.c	8366;"	d	file:
-__PYX_VERIFY_RETURN_INT_EXC	cyueye.c	8368;"	d	file:
-__PYX__VERIFY_RETURN_INT	cyueye.c	8370;"	d	file:
+__PYX_VERIFY_RETURN_INT	cyueye.c	9006;"	d	file:
+__PYX_VERIFY_RETURN_INT_EXC	cyueye.c	9008;"	d	file:
+__PYX__VERIFY_RETURN_INT	cyueye.c	9010;"	d	file:
 __Pyx_AddTraceback	cyueye.c	/^static void __Pyx_AddTraceback(const char *funcname, int c_line,$/;"	f	file:
 __Pyx_BUILTIN_MODULE_NAME	cyueye.c	208;"	d	file:
 __Pyx_BUILTIN_MODULE_NAME	cyueye.c	213;"	d	file:
@@ -558,11 +563,12 @@ __Pyx_truncl	cyueye.c	520;"	d	file:
 __Pyx_uchar_cast	cyueye.c	561;"	d	file:
 __Pyx_void_to_None	cyueye.c	451;"	d	file:
 __cdecl	cyueye.c	37;"	d	file:
-__cinit__	cyueye.pyx	/^    def __cinit__(self, format_id, displaymode="dib", colormode="bgr8_packed"):$/;"	m	class:Cam	file:
+__cinit__	cyueye.pyx	/^    def __cinit__(self, format_id, hcam=0, displaymode='dib', colormode="bgr8_packed"):$/;"	m	class:Cam	file:
 __dealloc__	cyueye.pyx	/^    def __dealloc__(self):$/;"	m	class:Cam	file:
 __fastcall	cyueye.c	40;"	d	file:
 __has_attribute	cyueye.c	391;"	d	file:
 __has_cpp_attribute	cyueye.c	394;"	d	file:
+__init__	cyueye.pyx	/^            def __init__(self, ueye_camera_mode, bitspixel)$/;"	m	class:Cam.set_color_mode.color_mode_options
 __pyx_PyFloat_AsDouble	cyueye.c	637;"	d	file:
 __pyx_PyFloat_AsDouble	cyueye.c	639;"	d	file:
 __pyx_PyFloat_AsFloat	cyueye.c	641;"	d	file:
@@ -606,6 +612,7 @@ __pyx_k_Non_native_byte_order_not_suppor	cyueye.c	/^static const char __pyx_k_No
 __pyx_k_RuntimeError	cyueye.c	/^static const char __pyx_k_RuntimeError[] = "RuntimeError";$/;"	v	file:
 __pyx_k_Status_alloc_image_mem	cyueye.c	/^static const char __pyx_k_Status_alloc_image_mem[] = "Status alloc_image_mem: ";$/;"	v	file:
 __pyx_k_Status_exit_camera	cyueye.c	/^static const char __pyx_k_Status_exit_camera[] = "Status exit_camera: ";$/;"	v	file:
+__pyx_k_Status_free_image_mem	cyueye.c	/^static const char __pyx_k_Status_free_image_mem[] = "Status free_image_mem: ";$/;"	v	file:
 __pyx_k_Status_get_supported_formats	cyueye.c	/^static const char __pyx_k_Status_get_supported_formats[] = "Status get_supported_formats";$/;"	v	file:
 __pyx_k_Status_init_Camera	cyueye.c	/^static const char __pyx_k_Status_init_Camera[] = "Status init_Camera: ";$/;"	v	file:
 __pyx_k_Status_set_color_mode	cyueye.c	/^static const char __pyx_k_Status_set_color_mode[] = "Status set_color_mode: ";$/;"	v	file:
@@ -615,13 +622,13 @@ __pyx_k_Status_set_image_mem	cyueye.c	/^static const char __pyx_k_Status_set_ima
 __pyx_k_TypeError	cyueye.c	/^static const char __pyx_k_TypeError[] = "TypeError";$/;"	v	file:
 __pyx_k_ValueError	cyueye.c	/^static const char __pyx_k_ValueError[] = "ValueError";$/;"	v	file:
 __pyx_k_bgr8_packed	cyueye.c	/^static const char __pyx_k_bgr8_packed[] = "bgr8_packed";$/;"	v	file:
-__pyx_k_capture_video	cyueye.c	/^static const char __pyx_k_capture_video[] = "capture_video";$/;"	v	file:
 __pyx_k_cline_in_traceback	cyueye.c	/^static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";$/;"	v	file:
 __pyx_k_colormode	cyueye.c	/^static const char __pyx_k_colormode[] = "colormode";$/;"	v	file:
 __pyx_k_dib	cyueye.c	/^static const char __pyx_k_dib[] = "dib";$/;"	v	file:
 __pyx_k_displaymode	cyueye.c	/^static const char __pyx_k_displaymode[] = "displaymode";$/;"	v	file:
 __pyx_k_exit_camera	cyueye.c	/^static const char __pyx_k_exit_camera[] = "exit_camera";$/;"	v	file:
 __pyx_k_format_id	cyueye.c	/^static const char __pyx_k_format_id[] = "format_id";$/;"	v	file:
+__pyx_k_free_image_mem	cyueye.c	/^static const char __pyx_k_free_image_mem[] = "free_image_mem";$/;"	v	file:
 __pyx_k_freeze_video	cyueye.c	/^static const char __pyx_k_freeze_video[] = "freeze_video";$/;"	v	file:
 __pyx_k_get_supported_formats	cyueye.c	/^static const char __pyx_k_get_supported_formats[] = "get_supported_formats";$/;"	v	file:
 __pyx_k_getstate	cyueye.c	/^static const char __pyx_k_getstate[] = "__getstate__";$/;"	v	file:
@@ -655,6 +662,7 @@ __pyx_k_unknown_dtype_code_in_numpy_pxd	cyueye.c	/^static const char __pyx_k_unk
 __pyx_kp_s_Format	cyueye.c	/^static PyObject *__pyx_kp_s_Format;$/;"	v	file:
 __pyx_kp_s_Status_alloc_image_mem	cyueye.c	/^static PyObject *__pyx_kp_s_Status_alloc_image_mem;$/;"	v	file:
 __pyx_kp_s_Status_exit_camera	cyueye.c	/^static PyObject *__pyx_kp_s_Status_exit_camera;$/;"	v	file:
+__pyx_kp_s_Status_free_image_mem	cyueye.c	/^static PyObject *__pyx_kp_s_Status_free_image_mem;$/;"	v	file:
 __pyx_kp_s_Status_get_supported_formats	cyueye.c	/^static PyObject *__pyx_kp_s_Status_get_supported_formats;$/;"	v	file:
 __pyx_kp_s_Status_init_Camera	cyueye.c	/^static PyObject *__pyx_kp_s_Status_init_Camera;$/;"	v	file:
 __pyx_kp_s_Status_set_color_mode	cyueye.c	/^static PyObject *__pyx_kp_s_Status_set_color_mode;$/;"	v	file:
@@ -676,8 +684,8 @@ __pyx_kp_u_unknown_dtype_code_in_numpy_pxd	cyueye.c	/^static PyObject *__pyx_kp_
 __pyx_lineno	cyueye.c	/^static int __pyx_lineno;$/;"	v	file:
 __pyx_m	cyueye.c	/^static PyObject *__pyx_m = NULL;$/;"	v	file:
 __pyx_methods	cyueye.c	/^static PyMethodDef __pyx_methods[] = {$/;"	v	file:
-__pyx_methods_6cyueye_Cam	cyueye.c	/^static PyMethodDef __pyx_methods_6cyueye_Cam[] = {$/;"	v	file:
-__pyx_module_is_main_cyueye	cyueye.c	/^int __pyx_module_is_main_cyueye = 0;$/;"	v
+__pyx_methods_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^static PyMethodDef __pyx_methods_5horus_6engine_6driver_6cyueye_6cyueye_Cam[] = {$/;"	v	file:
+__pyx_module_is_main_horus__engine__driver__cyueye__cyueye	cyueye.c	/^int __pyx_module_is_main_horus__engine__driver__cyueye__cyueye = 0;$/;"	v
 __pyx_moduledef	cyueye.c	/^static struct PyModuleDef __pyx_moduledef = {$/;"	v	typeref:struct:PyModuleDef	file:
 __pyx_moduledef_slots	cyueye.c	/^static PyModuleDef_Slot __pyx_moduledef_slots[] = {$/;"	v	file:
 __pyx_n_s_ImportError	cyueye.c	/^static PyObject *__pyx_n_s_ImportError;$/;"	v	file:
@@ -685,13 +693,13 @@ __pyx_n_s_RuntimeError	cyueye.c	/^static PyObject *__pyx_n_s_RuntimeError;$/;"	v
 __pyx_n_s_TypeError	cyueye.c	/^static PyObject *__pyx_n_s_TypeError;$/;"	v	file:
 __pyx_n_s_ValueError	cyueye.c	/^static PyObject *__pyx_n_s_ValueError;$/;"	v	file:
 __pyx_n_s_bgr8_packed	cyueye.c	/^static PyObject *__pyx_n_s_bgr8_packed;$/;"	v	file:
-__pyx_n_s_capture_video	cyueye.c	/^static PyObject *__pyx_n_s_capture_video;$/;"	v	file:
 __pyx_n_s_cline_in_traceback	cyueye.c	/^static PyObject *__pyx_n_s_cline_in_traceback;$/;"	v	file:
 __pyx_n_s_colormode	cyueye.c	/^static PyObject *__pyx_n_s_colormode;$/;"	v	file:
 __pyx_n_s_dib	cyueye.c	/^static PyObject *__pyx_n_s_dib;$/;"	v	file:
 __pyx_n_s_displaymode	cyueye.c	/^static PyObject *__pyx_n_s_displaymode;$/;"	v	file:
 __pyx_n_s_exit_camera	cyueye.c	/^static PyObject *__pyx_n_s_exit_camera;$/;"	v	file:
 __pyx_n_s_format_id	cyueye.c	/^static PyObject *__pyx_n_s_format_id;$/;"	v	file:
+__pyx_n_s_free_image_mem	cyueye.c	/^static PyObject *__pyx_n_s_free_image_mem;$/;"	v	file:
 __pyx_n_s_freeze_video	cyueye.c	/^static PyObject *__pyx_n_s_freeze_video;$/;"	v	file:
 __pyx_n_s_get_supported_formats	cyueye.c	/^static PyObject *__pyx_n_s_get_supported_formats;$/;"	v	file:
 __pyx_n_s_getstate	cyueye.c	/^static PyObject *__pyx_n_s_getstate;$/;"	v	file:
@@ -713,50 +721,66 @@ __pyx_n_s_set_image_mem	cyueye.c	/^static PyObject *__pyx_n_s_set_image_mem;$/;"
 __pyx_n_s_setstate	cyueye.c	/^static PyObject *__pyx_n_s_setstate;$/;"	v	file:
 __pyx_n_s_setstate_cython	cyueye.c	/^static PyObject *__pyx_n_s_setstate_cython;$/;"	v	file:
 __pyx_n_s_test	cyueye.c	/^static PyObject *__pyx_n_s_test;$/;"	v	file:
-__pyx_obj_6cyueye_Cam	cyueye.c	/^struct __pyx_obj_6cyueye_Cam {$/;"	s	file:
+__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam {$/;"	s	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_color_mode	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_color_mode(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_format	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_format(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, int __pyx_v_format_id) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14get_supported_formats	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14get_supported_formats(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16alloc_image_mem	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16alloc_image_mem(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18free_image_mem	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18free_image_mem(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20set_image_mem	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20set_image_mem(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22freeze_video	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22freeze_video(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24capture_video	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24capture_video(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26freeze_to_numpy	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26freeze_to_numpy(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28video_to_numpy	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28video_to_numpy(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__	cyueye.c	/^static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30set_exposure	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30set_exposure(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, double __pyx_v_exposure) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32get_exposure	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32get_exposure(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34set_framerate	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34set_framerate(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, double __pyx_v_framerate) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_saturation	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_saturation(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, int __pyx_v_saturation) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38get_saturation	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38get_saturation(CYTHON_UNUSED struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_40read	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_40read(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42grab	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42grab(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_44__reduce_cython__	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_44__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_46__setstate_cython__	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_46__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_4_init_camera	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_4_init_camera(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6exit_camera	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6exit_camera(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8set_display_mode	cyueye.c	/^static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8set_display_mode(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
+__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__	cyueye.c	/^static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct __pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_format_id, PyObject *__pyx_v_displaymode, PyObject *__pyx_v_colormode) {$/;"	f	file:
 __pyx_pf_5numpy_7ndarray_2__releasebuffer__	cyueye.c	/^static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info) {$/;"	f	file:
 __pyx_pf_5numpy_7ndarray___getbuffer__	cyueye.c	/^static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_10set_color_mode	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_10set_color_mode(struct __pyx_obj_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_12set_format	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_12set_format(struct __pyx_obj_6cyueye_Cam *__pyx_v_self, int __pyx_v_format_id) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_14get_supported_formats	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_14get_supported_formats(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_16alloc_image_mem	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_16alloc_image_mem(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_18set_image_mem	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_18set_image_mem(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_20freeze_video	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_20freeze_video(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_22capture_video	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_22capture_video(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_24freeze_to_numpy	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_24freeze_to_numpy(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_26video_to_numpy	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_26video_to_numpy(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_28__reduce_cython__	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_28__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_2__dealloc__	cyueye.c	/^static void __pyx_pf_6cyueye_3Cam_2__dealloc__(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_30__setstate_cython__	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_30__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cyueye_Cam *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_4_init_camera	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_4_init_camera(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_6exit_camera	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_6exit_camera(struct __pyx_obj_6cyueye_Cam *__pyx_v_self) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam_8set_display_mode	cyueye.c	/^static PyObject *__pyx_pf_6cyueye_3Cam_8set_display_mode(struct __pyx_obj_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
-__pyx_pf_6cyueye_3Cam___cinit__	cyueye.c	/^static int __pyx_pf_6cyueye_3Cam___cinit__(struct __pyx_obj_6cyueye_Cam *__pyx_v_self, PyObject *__pyx_v_format_id, PyObject *__pyx_v_displaymode, PyObject *__pyx_v_colormode) {$/;"	f	file:
+__pyx_ptype_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^static PyTypeObject *__pyx_ptype_5horus_6engine_6driver_6cyueye_6cyueye_Cam = 0;$/;"	v	file:
 __pyx_ptype_5numpy_broadcast	cyueye.c	/^static PyTypeObject *__pyx_ptype_5numpy_broadcast = 0;$/;"	v	file:
 __pyx_ptype_5numpy_dtype	cyueye.c	/^static PyTypeObject *__pyx_ptype_5numpy_dtype = 0;$/;"	v	file:
 __pyx_ptype_5numpy_flatiter	cyueye.c	/^static PyTypeObject *__pyx_ptype_5numpy_flatiter = 0;$/;"	v	file:
 __pyx_ptype_5numpy_ndarray	cyueye.c	/^static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;$/;"	v	file:
 __pyx_ptype_5numpy_ufunc	cyueye.c	/^static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;$/;"	v	file:
-__pyx_ptype_6cyueye_Cam	cyueye.c	/^static PyTypeObject *__pyx_ptype_6cyueye_Cam = 0;$/;"	v	file:
 __pyx_ptype_7cpython_4type_type	cyueye.c	/^static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;$/;"	v	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_11set_color_mode	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_11set_color_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_13set_format	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_13set_format(PyObject *__pyx_v_self, PyObject *__pyx_arg_format_id) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15get_supported_formats	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15get_supported_formats(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_17alloc_image_mem	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_17alloc_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_19free_image_mem	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_19free_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_1__cinit__	cyueye.c	/^static int __pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_21set_image_mem	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_21set_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_23freeze_video	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_23freeze_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_25capture_video	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_25capture_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_27freeze_to_numpy	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_27freeze_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_29video_to_numpy	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_29video_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_31set_exposure	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_31set_exposure(PyObject *__pyx_v_self, PyObject *__pyx_arg_exposure) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33get_exposure	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33get_exposure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_35set_framerate	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_35set_framerate(PyObject *__pyx_v_self, PyObject *__pyx_arg_framerate) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_saturation	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_saturation(PyObject *__pyx_v_self, PyObject *__pyx_arg_saturation) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39get_saturation	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39get_saturation(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_3__dealloc__	cyueye.c	/^static void __pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_3__dealloc__(PyObject *__pyx_v_self) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_41read	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_41read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_43grab	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_43grab(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_45__reduce_cython__	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_45__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_47__setstate_cython__	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_47__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_5_init_camera	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_5_init_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_7exit_camera	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_7exit_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
+__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_9set_display_mode	cyueye.c	/^static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_9set_display_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
 __pyx_pw_5numpy_7ndarray_1__getbuffer__	cyueye.c	/^static CYTHON_UNUSED int __pyx_pw_5numpy_7ndarray_1__getbuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags) {$/;"	f	file:
 __pyx_pw_5numpy_7ndarray_3__releasebuffer__	cyueye.c	/^static CYTHON_UNUSED void __pyx_pw_5numpy_7ndarray_3__releasebuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_11set_color_mode	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_11set_color_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_13set_format	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_13set_format(PyObject *__pyx_v_self, PyObject *__pyx_arg_format_id) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_15get_supported_formats	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_15get_supported_formats(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_17alloc_image_mem	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_17alloc_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_19set_image_mem	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_19set_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_1__cinit__	cyueye.c	/^static int __pyx_pw_6cyueye_3Cam_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_21freeze_video	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_21freeze_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_23capture_video	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_23capture_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_25freeze_to_numpy	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_25freeze_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_27video_to_numpy	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_27video_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_29__reduce_cython__	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_29__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_31__setstate_cython__	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_31__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_3__dealloc__	cyueye.c	/^static void __pyx_pw_6cyueye_3Cam_3__dealloc__(PyObject *__pyx_v_self) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_5_init_camera	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_5_init_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_7exit_camera	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_7exit_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {$/;"	f	file:
-__pyx_pw_6cyueye_3Cam_9set_display_mode	cyueye.c	/^static PyObject *__pyx_pw_6cyueye_3Cam_9set_display_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {$/;"	f	file:
 __pyx_string_tab	cyueye.c	/^static __Pyx_StringTabEntry __pyx_string_tab[] = {$/;"	v	file:
 __pyx_t_5numpy_cdouble_t	cyueye.c	/^typedef npy_cdouble __pyx_t_5numpy_cdouble_t;$/;"	t	file:
 __pyx_t_5numpy_cfloat_t	cyueye.c	/^typedef npy_cfloat __pyx_t_5numpy_cfloat_t;$/;"	t	file:
@@ -791,8 +815,8 @@ __pyx_t_float_complex	cyueye.c	/^    typedef ::std::complex< float > __pyx_t_flo
 __pyx_t_float_complex	cyueye.c	/^    typedef float _Complex __pyx_t_float_complex;$/;"	t	file:
 __pyx_t_float_complex	cyueye.c	/^    typedef struct { float real, imag; } __pyx_t_float_complex;$/;"	t	typeref:struct:__anon3	file:
 __pyx_t_float_complex_from_parts	cyueye.c	/^    static CYTHON_INLINE __pyx_t_float_complex __pyx_t_float_complex_from_parts(float x, float y) {$/;"	f	file:
-__pyx_tp_dealloc_6cyueye_Cam	cyueye.c	/^static void __pyx_tp_dealloc_6cyueye_Cam(PyObject *o) {$/;"	f	file:
-__pyx_tp_new_6cyueye_Cam	cyueye.c	/^static PyObject *__pyx_tp_new_6cyueye_Cam(PyTypeObject *t, PyObject *a, PyObject *k) {$/;"	f	file:
+__pyx_tp_dealloc_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^static void __pyx_tp_dealloc_5horus_6engine_6driver_6cyueye_6cyueye_Cam(PyObject *o) {$/;"	f	file:
+__pyx_tp_new_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^static PyObject *__pyx_tp_new_5horus_6engine_6driver_6cyueye_6cyueye_Cam(PyTypeObject *t, PyObject *a, PyObject *k) {$/;"	f	file:
 __pyx_tuple_	cyueye.c	/^static PyObject *__pyx_tuple_;$/;"	v	file:
 __pyx_tuple__10	cyueye.c	/^static PyObject *__pyx_tuple__10;$/;"	v	file:
 __pyx_tuple__11	cyueye.c	/^static PyObject *__pyx_tuple__11;$/;"	v	file:
@@ -804,71 +828,69 @@ __pyx_tuple__6	cyueye.c	/^static PyObject *__pyx_tuple__6;$/;"	v	file:
 __pyx_tuple__7	cyueye.c	/^static PyObject *__pyx_tuple__7;$/;"	v	file:
 __pyx_tuple__8	cyueye.c	/^static PyObject *__pyx_tuple__8;$/;"	v	file:
 __pyx_tuple__9	cyueye.c	/^static PyObject *__pyx_tuple__9;$/;"	v	file:
-__pyx_type_6cyueye_Cam	cyueye.c	/^static PyTypeObject __pyx_type_6cyueye_Cam = {$/;"	v	file:
+__pyx_type_5horus_6engine_6driver_6cyueye_6cyueye_Cam	cyueye.c	/^static PyTypeObject __pyx_type_5horus_6engine_6driver_6cyueye_6cyueye_Cam = {$/;"	v	file:
 __stdcall	cyueye.c	34;"	d	file:
+_check_deamon	cyueye.pyx	/^    def _check_deamon(self):$/;"	m	class:Cam
 _init_camera	cyueye.pyx	/^    def _init_camera(self):$/;"	m	class:Cam
 alloc_image_mem	cyueye.pyx	/^    def alloc_image_mem(self):$/;"	m	class:Cam
 am_aiter	cyueye.c	/^        unaryfunc am_aiter;$/;"	m	struct:__anon1	file:
 am_anext	cyueye.c	/^        unaryfunc am_anext;$/;"	m	struct:__anon1	file:
 am_await	cyueye.c	/^        unaryfunc am_await;$/;"	m	struct:__anon1	file:
-bitspixel	cyueye.c	/^  int bitspixel;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-cProfile	profile.py	/^import pstats, cProfile$/;"	i
+bitspixel	cyueye.c	/^  int bitspixel;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
 cam	test.py	/^cam = cu.Cam(format_id=8)$/;"	v
 capture_video	cyueye.pyx	/^    def capture_video(self):$/;"	m	class:Cam
 code_line	cyueye.c	/^    int code_line;$/;"	m	struct:__anon6	file:
 code_object	cyueye.c	/^    PyCodeObject* code_object;$/;"	m	struct:__anon6	file:
-colormode	cyueye.c	/^  PyObject *colormode;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
+color_mode_options	cyueye.pyx	/^        class color_mode_options():$/;"	c	function:Cam.set_color_mode
+colormode	cyueye.c	/^  PyObject *colormode;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
 count	cyueye.c	/^    int count;$/;"	m	struct:__Pyx_CodeObjectCache	file:
-cu	test.py	/^import cyueye as cu$/;"	i
-cv2	test.py	/^import cv2$/;"	i
-cythonize	setup.py	/^from Cython.Build import cythonize $/;"	i
-dims	cyueye.c	/^  npy_intp dims[3];$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-displaymode	cyueye.c	/^  PyObject *displaymode;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
+dims	cyueye.c	/^  npy_intp dims[3];$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
+displaymode	cyueye.c	/^  PyObject *displaymode;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
 encoding	cyueye.c	/^typedef struct {PyObject **p; const char *s; const Py_ssize_t n; const char* encoding;$/;"	m	struct:__anon2	file:
 entries	cyueye.c	/^    __Pyx_CodeObjectCacheEntry* entries;$/;"	m	struct:__Pyx_CodeObjectCache	file:
 exit_camera	cyueye.pyx	/^    def exit_camera(self):$/;"	m	class:Cam
 ext	setup.py	/^ext = Extension("cyueye", sources = ["cyueye.pyx"], libraries=["ueye_api"])$/;"	v
-format_id	cyueye.c	/^  int format_id;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-free	cyueye.pyx	/^from libc.stdlib cimport malloc, free$/;"	i
+format_id	cyueye.c	/^  int format_id;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
+free_image_mem	cyueye.pyx	/^    def free_image_mem(self):$/;"	m	class:Cam
 freeze_to_numpy	cyueye.pyx	/^    def freeze_to_numpy(self):$/;"	m	class:Cam
 freeze_video	cyueye.pyx	/^    def freeze_video(self):$/;"	m	class:Cam
+get_exposure	cyueye.pyx	/^    def get_exposure(self):$/;"	m	class:Cam
+get_saturation	cyueye.pyx	/^    def get_saturation(self):$/;"	m	class:Cam
 get_supported_formats	cyueye.pyx	/^    def get_supported_formats(self):$/;"	m	class:Cam
-hCam	cyueye.c	/^  unsigned int hCam;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-height	cyueye.c	/^  int height;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
+grab	cyueye.pyx	/^    def grab(self):$/;"	m	class:Cam
+hCam	cyueye.c	/^  unsigned int hCam;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
+height	cyueye.c	/^  int height;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
 imag	cyueye.c	/^    typedef struct { double real, imag; } __pyx_t_double_complex;$/;"	m	struct:__anon4	file:
 imag	cyueye.c	/^    typedef struct { float real, imag; } __pyx_t_float_complex;$/;"	m	struct:__anon3	file:
-image_format_list	cyueye.c	/^  IMAGE_FORMAT_LIST *image_format_list;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
+image_format_list	cyueye.c	/^  IMAGE_FORMAT_LIST *image_format_list;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
 initcyueye	cyueye.c	/^PyMODINIT_FUNC initcyueye(void)$/;"	f
 intern	cyueye.c	/^                const char is_unicode; const char is_str; const char intern; } __Pyx_StringTabEntry;$/;"	m	struct:__anon2	file:
 is_str	cyueye.c	/^                const char is_unicode; const char is_str; const char intern; } __Pyx_StringTabEntry;$/;"	m	struct:__anon2	file:
 is_unicode	cyueye.c	/^                const char is_unicode; const char is_str; const char intern; } __Pyx_StringTabEntry;$/;"	m	struct:__anon2	file:
 likely	cyueye.c	726;"	d	file:
 likely	cyueye.c	729;"	d	file:
-malloc	cyueye.pyx	/^from libc.stdlib cimport malloc, free$/;"	i
 max_count	cyueye.c	/^    int max_count;$/;"	m	struct:__Pyx_CodeObjectCache	file:
 n	cyueye.c	/^typedef struct {PyObject **p; const char *s; const Py_ssize_t n; const char* encoding;$/;"	m	struct:__anon2	file:
-np	cyueye.pyx	/^cimport numpy as np$/;"	i
-np	cyueye.pyx	/^import numpy as np$/;"	i
-np	test.py	/^import numpy as np$/;"	i
-numpy	setup.py	/^import numpy$/;"	i
 offsetof	cyueye.c	30;"	d	file:
 p	cyueye.c	/^typedef struct {PyObject **p; const char *s; const Py_ssize_t n; const char* encoding;$/;"	m	struct:__anon2	file:
-pcImgMem	cyueye.c	/^  char *pcImgMem;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-pic	test.py	/^    pic = cam.freeze_to_numpy()$/;"	v
-pid	cyueye.c	/^  int pid;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
-pprint	test.py	/^import pprint$/;"	i
-print_function	cyueye.pyx	/^from __future__ import print_function$/;"	i
-pstats	profile.py	/^import pstats, cProfile$/;"	i
+pcImgMem	cyueye.c	/^  char *pcImgMem;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
+pic	test.py	/^    pic = cam.video_to_numpy()$/;"	v
+pid	cyueye.c	/^  int pid;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
+project_opened	.ropeproject/config.py	/^def project_opened(project):$/;"	f
+read	cyueye.pyx	/^    def read(self):$/;"	m	class:Cam
 real	cyueye.c	/^    typedef struct { double real, imag; } __pyx_t_double_complex;$/;"	m	struct:__anon4	file:
 real	cyueye.c	/^    typedef struct { float real, imag; } __pyx_t_float_complex;$/;"	m	struct:__anon3	file:
+ret	cyueye.pyx	/^            ret = is_SetColorMode(self.hCam, options[mode].ueye_camera_mode)$/;"	v	class:Cam.set_color_mode.color_mode_options
 s	cyueye.c	/^typedef struct {PyObject **p; const char *s; const Py_ssize_t n; const char* encoding;$/;"	m	struct:__anon2	file:
 s	profile.py	/^s=pstats.Stats("Profile.prof")$/;"	v
 set_color_mode	cyueye.pyx	/^    def set_color_mode(self, mode):$/;"	m	class:Cam
 set_display_mode	cyueye.pyx	/^    def set_display_mode(self, mode):$/;"	m	class:Cam
+set_exposure	cyueye.pyx	/^    def set_exposure(self, double exposure):$/;"	m	class:Cam
 set_format	cyueye.pyx	/^    def set_format(self, int format_id):$/;"	m	class:Cam
+set_framerate	cyueye.pyx	/^    def set_framerate(self, double framerate):$/;"	m	class:Cam
 set_image_mem	cyueye.pyx	/^    def set_image_mem(self):$/;"	m	class:Cam
-setup	setup.py	/^from distutils.core import setup$/;"	i
-test	profile.py	/^import test$/;"	i
+set_prefs	.ropeproject/config.py	/^def set_prefs(prefs):$/;"	f
+set_saturation	cyueye.pyx	/^    def set_saturation(self, int saturation):$/;"	m	class:Cam
 toggleDiv	cyueye.html	/^    function toggleDiv(id) {$/;"	f
 uint32_t	cyueye.c	/^           typedef unsigned __int32  uint32_t;$/;"	t	file:
 uint32_t	cyueye.c	/^           typedef unsigned int      uint32_t;$/;"	t	file:
@@ -877,4 +899,4 @@ uint8_t	cyueye.c	/^           typedef unsigned char     uint8_t;$/;"	t	file:
 unlikely	cyueye.c	727;"	d	file:
 unlikely	cyueye.c	730;"	d	file:
 video_to_numpy	cyueye.pyx	/^    def video_to_numpy(self):$/;"	m	class:Cam
-width	cyueye.c	/^  int width;$/;"	m	struct:__pyx_obj_6cyueye_Cam	file:
+width	cyueye.c	/^  int width;$/;"	m	struct:__pyx_obj_5horus_6engine_6driver_6cyueye_6cyueye_Cam	file:
