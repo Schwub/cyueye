@@ -1,1 +1,5 @@
-python setup.py build_ext --inplace 
+all:
+	python setup.py build_ext --inplace
+
+test: 
+	python test.py
