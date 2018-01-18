@@ -1,4 +1,6 @@
-import cyueye as cu
+import sys
+sys.path.insert(0, "..")
+from cyueye import cyueye as cu
 import cv2
 import numpy as np
 cam = cu.Cam(format_id=8)
