@@ -1,4 +1,3 @@
-# cython: profile=True
 from __future__ import print_function
 from libc.stdlib cimport malloc, free
 import numpy as np
