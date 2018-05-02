@@ -794,16 +794,14 @@ static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">115</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">realloc</span> <span class="o">=</span> <span class="bp">False</span></pre>
-<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_realloc, Py_False) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 115, __pyx_L1_error)</span>
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">116</span>:         <span class="n">np</span><span class="o">.</span><span class="n">Py_INCREF</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">)</span></pre>
-<pre class='cython code score-3 '>  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_PyInt_From_enum__NPY_TYPES</span>(NPY_UINT8);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)</span>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">115</span>:         <span class="n">np</span><span class="o">.</span><span class="n">Py_INCREF</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">)</span></pre>
+<pre class='cython code score-3 '>  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_PyInt_From_enum__NPY_TYPES</span>(NPY_UINT8);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   Py_INCREF(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">117</span>:         <span class="n">np</span><span class="o">.</span><span class="n">import_array</span><span class="p">()</span></pre>
-<pre class='cython code score-0 '>  __pyx_t_6 = __pyx_f_5numpy_import_array();<span class='error_goto'> if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 117, __pyx_L1_error)</span>
-</pre><pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">118</span>:     <span class="k">def</span> <span class="nf">__dealloc__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">116</span>:         <span class="n">np</span><span class="o">.</span><span class="n">import_array</span><span class="p">()</span></pre>
+<pre class='cython code score-0 '>  __pyx_t_6 = __pyx_f_5numpy_import_array();<span class='error_goto'> if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 116, __pyx_L1_error)</span>
+</pre><pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">117</span>:     <span class="k">def</span> <span class="nf">__dealloc__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static void __pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
 static void __pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_3__dealloc__(PyObject *__pyx_v_self) {
@@ -829,8 +827,30 @@ static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(st
   __pyx_L0:;
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
 }
-</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">119</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">free_image_mem</span><span class="p">()</span></pre>
-<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_free_image_mem);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)</span>
+</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">118</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">free_image_mem</span><span class="p">()</span></pre>
+<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_free_image_mem);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)</span>
+  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_2))) {
+    __pyx_t_3 = <span class='py_macro_api'>PyMethod_GET_SELF</span>(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = <span class='py_macro_api'>PyMethod_GET_FUNCTION</span>(__pyx_t_2);
+      <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_3);
+      <span class='pyx_macro_api'>__Pyx_INCREF</span>(function);
+      <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_t_2, function);
+    }
+  }
+  if (__pyx_t_3) {
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)</span>
+    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)</span>
+  }
+  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
+  <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
+  <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
+</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">119</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">exit_camera</span><span class="p">()</span></pre>
+<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_exit_camera);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_2))) {
@@ -851,30 +871,8 @@ static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(st
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">120</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">exit_camera</span><span class="p">()</span></pre>
-<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_exit_camera);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)</span>
-  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_2))) {
-    __pyx_t_3 = <span class='py_macro_api'>PyMethod_GET_SELF</span>(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = <span class='py_macro_api'>PyMethod_GET_FUNCTION</span>(__pyx_t_2);
-      <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_3);
-      <span class='pyx_macro_api'>__Pyx_INCREF</span>(function);
-      <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_t_2, function);
-    }
-  }
-  if (__pyx_t_3) {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)</span>
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)</span>
-  }
-  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-  <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">121</span>: </pre>
-<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">122</span>:     <span class="k">def</span> <span class="nf">_check_deamon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">120</span>: </pre>
+<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">121</span>:     <span class="k">def</span> <span class="nf">_check_deamon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-1 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_5_check_deamon(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_5_check_deamon(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -899,10 +897,10 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_4_check_de
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">123</span>:         <span class="k">pass</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">122</span>:         <span class="k">pass</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">123</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">124</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">125</span>: </pre>
-<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">126</span>:     <span class="k">def</span> <span class="nf">_init_camera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">125</span>:     <span class="k">def</span> <span class="nf">_init_camera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-4 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_7_init_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_7_init_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -933,12 +931,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">127</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_InitCamera</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">126</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_InitCamera</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_InitCamera((&amp;__pyx_v_self-&gt;hCam), NULL);
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">128</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status init_Camera: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">127</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status init_Camera: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_init_Camera);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_init_Camera);
@@ -946,19 +944,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">129</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">128</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">130</span>: </pre>
-<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">131</span>:     <span class="k">def</span> <span class="nf">exit_camera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">129</span>: </pre>
+<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">130</span>:     <span class="k">def</span> <span class="nf">exit_camera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-4 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_9exit_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_9exit_camera(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -989,12 +987,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">132</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ExitCamera</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">131</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ExitCamera</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_ExitCamera(__pyx_v_self-&gt;hCam);
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">133</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status exit_camera: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">132</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status exit_camera: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_exit_camera);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_exit_camera);
@@ -1002,19 +1000,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">134</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">133</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">135</span>: </pre>
-<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">136</span>:     <span class="k">def</span> <span class="nf">set_display_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">134</span>: </pre>
+<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">135</span>:     <span class="k">def</span> <span class="nf">set_display_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_11set_display_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_11set_display_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {
@@ -1047,19 +1045,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">137</span>:         <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="s">&#39;dib&#39;</span><span class="p">:</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">136</span>:         <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="s">&#39;dib&#39;</span><span class="p">:</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_1 = (__pyx_v_mode == __pyx_n_s_dib);
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 /* … */
     goto __pyx_L3;
   }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">138</span>:             <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetDisplayMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_SET_DM_DIB</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">137</span>:             <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetDisplayMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_SET_DM_DIB</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>    __pyx_v_ret = is_SetDisplayMode(__pyx_v_self-&gt;hCam, IS_SET_DM_DIB);
-</pre><pre class="cython line score-0">&#xA0;<span class="">139</span>:         <span class="k">else</span><span class="p">:</span></pre>
-<pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">140</span>:             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="s">&quot; is not supported&quot;</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">138</span>:         <span class="k">else</span><span class="p">:</span></pre>
+<pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">139</span>:             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="s">&quot; is not supported&quot;</span><span class="p">)</span></pre>
 <pre class='cython code score-15 '>  /*else*/ {
-    __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)</span>
+    __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_v_mode);
     <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_v_mode);
@@ -1067,18 +1065,18 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_is_not_supported);
     <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_is_not_supported);
     <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 1, __pyx_kp_s_is_not_supported);
-    __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)</span>
+    __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
     <span class='pyx_c_api'>__Pyx_Raise</span>(__pyx_t_4, 0, 0, 0);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
-    <span class='error_goto'>__PYX_ERR(0, 140, __pyx_L1_error)</span>
+    <span class='error_goto'>__PYX_ERR(0, 139, __pyx_L1_error)</span>
   }
   __pyx_L3:;
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">141</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_display_moded: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">140</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_display_moded: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
-  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_set_display_moded);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_set_display_moded);
@@ -1086,12 +1084,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_4);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 1, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)</span>
+  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">142</span>: </pre>
-<pre class="cython line score-7" onclick='toggleDiv(this)'>+<span class="">143</span>:     <span class="k">def</span> <span class="nf">set_color_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">141</span>: </pre>
+<pre class="cython line score-7" onclick='toggleDiv(this)'>+<span class="">142</span>:     <span class="k">def</span> <span class="nf">set_color_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span></pre>
 <pre class='cython code score-7 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_13set_color_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_13set_color_mode(PyObject *__pyx_v_self, PyObject *__pyx_v_mode) {
@@ -1127,17 +1125,17 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">144</span>: </pre>
-<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">145</span>:         <span class="k">class</span> <span class="nc">color_mode_options</span><span class="p">():</span></pre>
-<pre class='cython code score-1 '>  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_color_mode_options, __pyx_n_s_set_color_mode_locals_color_mode, (PyObject *) NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, (PyObject *) NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)</span>
+</pre><pre class="cython line score-0">&#xA0;<span class="">143</span>: </pre>
+<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">144</span>:         <span class="k">class</span> <span class="nc">color_mode_options</span><span class="p">():</span></pre>
+<pre class='cython code score-1 '>  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_color_mode_options, __pyx_n_s_set_color_mode_locals_color_mode, (PyObject *) NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, (PyObject *) NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 144, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
 /* … */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&amp;__Pyx_DefaultClassType), __pyx_n_s_color_mode_options, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)</span>
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&amp;__Pyx_DefaultClassType), __pyx_n_s_color_mode_options, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_v_color_mode_options = __pyx_t_2;
   __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-57" onclick='toggleDiv(this)'>+<span class="">146</span>:             <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ueye_camera_mode</span><span class="p">,</span> <span class="n">bitspixel</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-57" onclick='toggleDiv(this)'>+<span class="">145</span>:             <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ueye_camera_mode</span><span class="p">,</span> <span class="n">bitspixel</span><span class="p">):</span></pre>
 <pre class='cython code score-57 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyMethodDef __pyx_mdef_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__ = {"__init__", (PyCFunction)__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
@@ -1173,17 +1171,17 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
         case  1:
         if (likely((values[1] = <span class='py_c_api'>PyDict_GetItem</span>(__pyx_kwds, __pyx_n_s_ueye_camera_mode)) != 0)) kw_args--;
         else {
-          <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, 1); <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L3_error)</span>
+          <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, 1); <span class='error_goto'>__PYX_ERR(0, 145, __pyx_L3_error)</span>
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = <span class='py_c_api'>PyDict_GetItem</span>(__pyx_kwds, __pyx_n_s_bitspixel)) != 0)) kw_args--;
         else {
-          <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, 2); <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L3_error)</span>
+          <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, 2); <span class='error_goto'>__PYX_ERR(0, 145, __pyx_L3_error)</span>
         }
       }
       if (unlikely(kw_args &gt; 0)) {
-        if (unlikely(<span class='pyx_c_api'>__Pyx_ParseOptionalKeywords</span>(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L3_error)</span>
+        if (unlikely(<span class='pyx_c_api'>__Pyx_ParseOptionalKeywords</span>(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 145, __pyx_L3_error)</span>
       }
     } else if (<span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1198,7 +1196,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L3_error)</span>
+  <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 3, 3, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 145, __pyx_L3_error)</span>
   __pyx_L3_error:;
   <span class='pyx_c_api'>__Pyx_AddTraceback</span>("horus.engine.driver.cyueye.cyueye.Cam.set_color_mode.color_mode_options.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
@@ -1228,27 +1226,27 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   return __pyx_r;
 }
 /* … */
-  __pyx_tuple__2 = <span class='py_c_api'>PyTuple_Pack</span>(3, __pyx_n_s_self, __pyx_n_s_ueye_camera_mode, __pyx_n_s_bitspixel);<span class='error_goto'> if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 146, __pyx_L1_error)</span>
+  __pyx_tuple__2 = <span class='py_c_api'>PyTuple_Pack</span>(3, __pyx_n_s_self, __pyx_n_s_ueye_camera_mode, __pyx_n_s_bitspixel);<span class='error_goto'> if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 145, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__2);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__2);
 /* … */
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_NewEx</span>(&amp;__pyx_mdef_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__, 0, __pyx_n_s_set_color_mode_locals_color_mode_2, NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, __pyx_d, ((PyObject *)__pyx_codeobj__3));<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_NewEx</span>(&amp;__pyx_mdef_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__, 0, __pyx_n_s_set_color_mode_locals_color_mode_2, NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, __pyx_d, ((PyObject *)__pyx_codeobj__3));<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  if (<span class='py_c_api'>PyObject_SetItem</span>(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L1_error)</span>
+  if (<span class='py_c_api'>PyObject_SetItem</span>(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 145, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_codeobj__3 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cyueye_pyx, __pyx_n_s_init, 146, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 146, __pyx_L1_error)</span>
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">147</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">ueye_camera_mode</span> <span class="o">=</span> <span class="n">ueye_camera_mode</span></pre>
-<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(__pyx_v_self, __pyx_n_s_ueye_camera_mode, __pyx_v_ueye_camera_mode) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 147, __pyx_L1_error)</span>
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">148</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span> <span class="o">=</span> <span class="n">bitspixel</span></pre>
-<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(__pyx_v_self, __pyx_n_s_bitspixel, __pyx_v_bitspixel) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 148, __pyx_L1_error)</span>
-</pre><pre class="cython line score-0">&#xA0;<span class="">149</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">150</span>:         <span class="n">options</span> <span class="o">=</span> <span class="p">{</span></pre>
-<pre class="cython line score-21" onclick='toggleDiv(this)'>+<span class="">151</span>:             <span class="s">&#39;bgr8_packed&#39;</span><span class="p">:</span> <span class="n">color_mode_options</span><span class="p">(</span><span class="n">IS_CM_BGR8_PACKED</span><span class="p">,</span> <span class="mf">24</span><span class="p">)</span></pre>
-<pre class='cython code score-21 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)</span>
+  __pyx_codeobj__3 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cyueye_pyx, __pyx_n_s_init, 145, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 145, __pyx_L1_error)</span>
+</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">146</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">ueye_camera_mode</span> <span class="o">=</span> <span class="n">ueye_camera_mode</span></pre>
+<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(__pyx_v_self, __pyx_n_s_ueye_camera_mode, __pyx_v_ueye_camera_mode) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 146, __pyx_L1_error)</span>
+</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">147</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span> <span class="o">=</span> <span class="n">bitspixel</span></pre>
+<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(__pyx_v_self, __pyx_n_s_bitspixel, __pyx_v_bitspixel) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 147, __pyx_L1_error)</span>
+</pre><pre class="cython line score-0">&#xA0;<span class="">148</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">149</span>:         <span class="n">options</span> <span class="o">=</span> <span class="p">{</span></pre>
+<pre class="cython line score-21" onclick='toggleDiv(this)'>+<span class="">150</span>:             <span class="s">&#39;bgr8_packed&#39;</span><span class="p">:</span> <span class="n">color_mode_options</span><span class="p">(</span><span class="n">IS_CM_BGR8_PACKED</span><span class="p">,</span> <span class="mf">24</span><span class="p">)</span></pre>
+<pre class='cython code score-21 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(IS_CM_BGR8_PACKED);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 151, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(IS_CM_BGR8_PACKED);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_2);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 0, __pyx_t_2);
@@ -1256,45 +1254,45 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_int_24);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 1, __pyx_int_24);
   __pyx_t_2 = 0;
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_v_color_mode_options, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 151, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_v_color_mode_options, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
-  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_t_1, __pyx_n_s_bgr8_packed, __pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 151, __pyx_L1_error)</span>
+  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_t_1, __pyx_n_s_bgr8_packed, __pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 150, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_options = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">152</span>:         <span class="p">}</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">151</span>:         <span class="p">}</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">152</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">153</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">154</span>: </pre>
-<pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">155</span>:         <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span></pre>
-<pre class='cython code score-2 '>  __pyx_t_4 = (<span class='pyx_c_api'>__Pyx_PyDict_ContainsTF</span>(__pyx_v_mode, __pyx_v_options, Py_EQ)); if (unlikely(__pyx_t_4 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 155, __pyx_L1_error)</span>
+<pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">154</span>:         <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span></pre>
+<pre class='cython code score-2 '>  __pyx_t_4 = (<span class='pyx_c_api'>__Pyx_PyDict_ContainsTF</span>(__pyx_v_mode, __pyx_v_options, Py_EQ)); if (unlikely(__pyx_t_4 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 154, __pyx_L1_error)</span>
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 /* … */
     goto __pyx_L3;
   }
-</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">156</span>:             <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetColorMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">options</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">ueye_camera_mode</span><span class="p">)</span></pre>
-<pre class='cython code score-13 '>    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_GetItem</span>(__pyx_v_options, __pyx_v_mode);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)</span>
+</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">155</span>:             <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetColorMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">options</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">ueye_camera_mode</span><span class="p">)</span></pre>
+<pre class='cython code score-13 '>    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_GetItem</span>(__pyx_v_options, __pyx_v_mode);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_1, __pyx_n_s_ueye_camera_mode);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)</span>
+    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_1, __pyx_n_s_ueye_camera_mode);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 156, __pyx_L1_error)</span>
+    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 155, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_ret = is_SetColorMode(__pyx_v_self-&gt;hCam, __pyx_t_6);
-</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">157</span>:             <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">bitspixel</span></pre>
-<pre class='cython code score-13 '>    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyDict_GetItem</span>(__pyx_v_options, __pyx_v_mode);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)</span>
+</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">156</span>:             <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">bitspixel</span></pre>
+<pre class='cython code score-13 '>    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyDict_GetItem</span>(__pyx_v_options, __pyx_v_mode);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_2, __pyx_n_s_bitspixel);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_2, __pyx_n_s_bitspixel);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 157, __pyx_L1_error)</span>
+    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 156, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_self-&gt;bitspixel = __pyx_t_6;
-</pre><pre class="cython line score-0">&#xA0;<span class="">158</span>:         <span class="k">else</span><span class="p">:</span></pre>
-<pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">159</span>:             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="s">&quot; is no colormode&quot;</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">157</span>:         <span class="k">else</span><span class="p">:</span></pre>
+<pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">158</span>:             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="s">&quot; is no colormode&quot;</span><span class="p">)</span></pre>
 <pre class='cython code score-15 '>  /*else*/ {
-    __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_v_mode);
     <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_v_mode);
@@ -1302,18 +1300,18 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_is_no_colormode);
     <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_is_no_colormode);
     <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_1, 1, __pyx_kp_s_is_no_colormode);
-    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)</span>
+    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
     <span class='pyx_c_api'>__Pyx_Raise</span>(__pyx_t_2, 0, 0, 0);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-    <span class='error_goto'>__PYX_ERR(0, 159, __pyx_L1_error)</span>
+    <span class='error_goto'>__PYX_ERR(0, 158, __pyx_L1_error)</span>
   }
   __pyx_L3:;
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">160</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_color_mode: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">159</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_color_mode: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_set_color_mode);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_set_color_mode);
@@ -1321,19 +1319,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_2);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_1, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">161</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">160</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">162</span>: </pre>
-<pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">163</span>:     <span class="k">def</span> <span class="nf">set_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span> <span class="n">format_id</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">161</span>: </pre>
+<pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">162</span>:     <span class="k">def</span> <span class="nf">set_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span> <span class="n">format_id</span><span class="p">):</span></pre>
 <pre class='cython code score-13 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15set_format(PyObject *__pyx_v_self, PyObject *__pyx_arg_format_id); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15set_format(PyObject *__pyx_v_self, PyObject *__pyx_arg_format_id) {
@@ -1342,7 +1340,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15set_form
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("set_format (wrapper)", 0);
   assert(__pyx_arg_format_id); {
-    __pyx_v_format_id = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_arg_format_id); if (unlikely((__pyx_v_format_id == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 163, __pyx_L3_error)</span>
+    __pyx_v_format_id = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_arg_format_id); if (unlikely((__pyx_v_format_id == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 162, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1376,26 +1374,26 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">164</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">i</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">165</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_INFO</span> <span class="nf">format_info</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">166</span>:         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span><span class="o">.</span><span class="n">nNumListElements</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">163</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">i</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">164</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_INFO</span> <span class="nf">format_info</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">165</span>:         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span><span class="o">.</span><span class="n">nNumListElements</span><span class="p">):</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_1 = __pyx_v_self-&gt;image_format_list-&gt;nNumListElements;
   for (__pyx_t_2 = 0; __pyx_t_2 &lt; __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">167</span>:             <span class="n">format_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span><span class="o">.</span><span class="n">FormatInfo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">166</span>:             <span class="n">format_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span><span class="o">.</span><span class="n">FormatInfo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>    __pyx_v_format_info = (__pyx_v_self-&gt;image_format_list-&gt;FormatInfo[__pyx_v_i]);
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">168</span>:             <span class="k">if</span> <span class="n">format_id</span> <span class="ow">is</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nFormatID</span><span class="p">:</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">167</span>:             <span class="k">if</span> <span class="n">format_id</span> <span class="ow">is</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nFormatID</span><span class="p">:</span></pre>
 <pre class='cython code score-0 '>    __pyx_t_3 = ((__pyx_v_format_id == __pyx_v_format_info.nFormatID) != 0);
     if (__pyx_t_3) {
 /* … */
     }
   }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">169</span>:                 <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_SET_FORMAT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">format_id</span><span class="p">,</span> <span class="mf">4</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">168</span>:                 <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_SET_FORMAT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">format_id</span><span class="p">,</span> <span class="mf">4</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>      __pyx_v_ret = is_ImageFormat(__pyx_v_self-&gt;hCam, IMGFRMT_CMD_SET_FORMAT, (&amp;__pyx_v_format_id), 4);
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">170</span>:                 <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_format: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">169</span>:                 <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_format: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
-      __pyx_t_5 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)</span>
+      __pyx_t_5 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
       <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_set_format);
       <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_set_format);
@@ -1403,27 +1401,27 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
       <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_4);
       <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_5, 1, __pyx_t_4);
       __pyx_t_4 = 0;
-      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_5, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)</span>
+      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_5, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
       <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
       <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">171</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nHeight</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">170</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nHeight</span></pre>
 <pre class='cython code score-0 '>      __pyx_t_6 = __pyx_v_format_info.nHeight;
       __pyx_v_self-&gt;height = __pyx_t_6;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">172</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nWidth</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">171</span>:                 <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">format_info</span><span class="o">.</span><span class="n">nWidth</span></pre>
 <pre class='cython code score-0 '>      __pyx_t_6 = __pyx_v_format_info.nWidth;
       __pyx_v_self-&gt;width = __pyx_t_6;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">173</span>:                 <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">172</span>:                 <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>      <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)</span>
+      __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 172, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
       __pyx_r = __pyx_t_4;
       __pyx_t_4 = 0;
       goto __pyx_L0;
-</pre><pre class="cython line score-18" onclick='toggleDiv(this)'>+<span class="">174</span>:         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Format: &quot;</span><span class="p">,</span> <span class="n">format_id</span><span class="p">,</span> <span class="s">&quot;is not supported on your camera&quot;</span><span class="p">)</span></pre>
-<pre class='cython code score-18 '>  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_format_id);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)</span>
+</pre><pre class="cython line score-18" onclick='toggleDiv(this)'>+<span class="">173</span>:         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Format: &quot;</span><span class="p">,</span> <span class="n">format_id</span><span class="p">,</span> <span class="s">&quot;is not supported on your camera&quot;</span><span class="p">)</span></pre>
+<pre class='cython code score-18 '>  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_format_id);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
-  __pyx_t_5 = <span class='py_c_api'>PyTuple_New</span>(3);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)</span>
+  __pyx_t_5 = <span class='py_c_api'>PyTuple_New</span>(3);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 173, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Format);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Format);
@@ -1434,14 +1432,14 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_is_not_supported_on_your_camera);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_5, 2, __pyx_kp_s_is_not_supported_on_your_camera);
   __pyx_t_4 = 0;
-  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_5, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)</span>
+  __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_ValueError, __pyx_t_5, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
   <span class='pyx_c_api'>__Pyx_Raise</span>(__pyx_t_4, 0, 0, 0);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
-  <span class='error_goto'>__PYX_ERR(0, 174, __pyx_L1_error)</span>
-</pre><pre class="cython line score-0">&#xA0;<span class="">175</span>: </pre>
-<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">176</span>:     <span class="k">def</span> <span class="nf">get_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+  <span class='error_goto'>__PYX_ERR(0, 173, __pyx_L1_error)</span>
+</pre><pre class="cython line score-0">&#xA0;<span class="">174</span>: </pre>
+<pre class="cython line score-4" onclick='toggleDiv(this)'>+<span class="">175</span>:     <span class="k">def</span> <span class="nf">get_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-4 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_17get_supported_formats(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_17get_supported_formats(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1477,34 +1475,34 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">177</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">count</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">178</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">bytesneeded</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_LIST</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">176</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">count</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">177</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">bytesneeded</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_LIST</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_bytesneeded = (sizeof(IMAGE_FORMAT_LIST));
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">179</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_GET_NUM_ENTRIES</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">count</span><span class="p">))</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">178</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_GET_NUM_ENTRIES</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">count</span><span class="p">))</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_ImageFormat(__pyx_v_self-&gt;hCam, IMGFRMT_CMD_GET_NUM_ENTRIES, (&amp;__pyx_v_count), (sizeof(__pyx_v_count)));
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">180</span>:         <span class="n">bytesneeded</span> <span class="o">+=</span> <span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="mf">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_INFO</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">179</span>:         <span class="n">bytesneeded</span> <span class="o">+=</span> <span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="mf">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_INFO</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_bytesneeded = (__pyx_v_bytesneeded + ((__pyx_v_count - 1) * (sizeof(IMAGE_FORMAT_INFO))));
-</pre><pre class="cython line score-0">&#xA0;<span class="">181</span>:         <span class="k">cdef</span> <span class="kt">void</span>* <span class="nf">ptr</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">182</span>:         <span class="n">ptr</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">bytesneeded</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">180</span>:         <span class="k">cdef</span> <span class="kt">void</span>* <span class="nf">ptr</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">181</span>:         <span class="n">ptr</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">bytesneeded</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ptr = malloc(__pyx_v_bytesneeded);
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">183</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_LIST</span>* <span class="nf">pformatList</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">IMAGE_FORMAT_LIST</span> <span class="o">*&gt;</span> <span class="n">ptr</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">182</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_LIST</span>* <span class="nf">pformatList</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">IMAGE_FORMAT_LIST</span> <span class="o">*&gt;</span> <span class="n">ptr</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_pformatList = ((IMAGE_FORMAT_LIST *)__pyx_v_ptr);
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">184</span>:         <span class="n">pformatList</span><span class="o">.</span><span class="n">nSizeOfListEntry</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_INFO</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">183</span>:         <span class="n">pformatList</span><span class="o">.</span><span class="n">nSizeOfListEntry</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">IMAGE_FORMAT_INFO</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_pformatList-&gt;nSizeOfListEntry = (sizeof(IMAGE_FORMAT_INFO));
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">185</span>:         <span class="n">pformatList</span><span class="o">.</span><span class="n">nNumListElements</span> <span class="o">=</span> <span class="n">count</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">184</span>:         <span class="n">pformatList</span><span class="o">.</span><span class="n">nNumListElements</span> <span class="o">=</span> <span class="n">count</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_pformatList-&gt;nNumListElements = __pyx_v_count;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">186</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_GET_LIST</span><span class="p">,</span> <span class="n">pformatList</span><span class="p">,</span> <span class="n">bytesneeded</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">185</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_ImageFormat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IMGFRMT_CMD_GET_LIST</span><span class="p">,</span> <span class="n">pformatList</span><span class="p">,</span> <span class="n">bytesneeded</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_ImageFormat(__pyx_v_self-&gt;hCam, IMGFRMT_CMD_GET_LIST, __pyx_v_pformatList, __pyx_v_bytesneeded);
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">187</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">i</span><span class="p">,</span> <span class="nf">n</span> <span class="o">=</span> <span class="n">pformatList</span><span class="o">.</span><span class="n">nNumListElements</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">186</span>:         <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">i</span><span class="p">,</span> <span class="nf">n</span> <span class="o">=</span> <span class="n">pformatList</span><span class="o">.</span><span class="n">nNumListElements</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_1 = __pyx_v_pformatList-&gt;nNumListElements;
   __pyx_v_n = __pyx_t_1;
-</pre><pre class="cython line score-0">&#xA0;<span class="">188</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_INFO</span> <span class="nf">formatInfo</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">189</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span> <span class="o">=</span> <span class="n">pformatList</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">187</span>:         <span class="k">cdef</span> <span class="kt">IMAGE_FORMAT_INFO</span> <span class="nf">formatInfo</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">188</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">image_format_list</span> <span class="o">=</span> <span class="n">pformatList</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_self-&gt;image_format_list = __pyx_v_pformatList;
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">190</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status get_supported_formats&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">189</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status get_supported_formats&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_get_supported_formats);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_get_supported_formats);
@@ -1512,20 +1510,20 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_2);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_3, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">191</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">190</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">192</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">193</span>: </pre>
-<pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">194</span>:     <span class="k">def</span> <span class="nf">alloc_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">191</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">192</span>: </pre>
+<pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">193</span>:     <span class="k">def</span> <span class="nf">alloc_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-6 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_19alloc_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_19alloc_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1559,13 +1557,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">195</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_AllocImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span><span class="p">,</span> <span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
-<pre class='cython code score-2 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(is_AllocImageMem(__pyx_v_self-&gt;hCam, __pyx_v_self-&gt;width, __pyx_v_self-&gt;height, __pyx_v_self-&gt;bitspixel, (&amp;__pyx_v_self-&gt;pcImgMem), (&amp;__pyx_v_self-&gt;pid)));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)</span>
+</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">194</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_AllocImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span><span class="p">,</span> <span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="o">&amp;</span><span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
+<pre class='cython code score-2 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(is_AllocImageMem(__pyx_v_self-&gt;hCam, __pyx_v_self-&gt;width, __pyx_v_self-&gt;height, __pyx_v_self-&gt;bitspixel, (&amp;__pyx_v_self-&gt;pcImgMem), (&amp;__pyx_v_self-&gt;pid)));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_ret = __pyx_t_1;
   __pyx_t_1 = 0;
-</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">196</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status alloc_image_mem: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-13 '>  __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)</span>
+</pre><pre class="cython line score-13" onclick='toggleDiv(this)'>+<span class="">195</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status alloc_image_mem: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-13 '>  __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_alloc_image_mem);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_alloc_image_mem);
@@ -1573,12 +1571,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_v_ret);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_v_ret);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_1, 1, __pyx_v_ret);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_1, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">197</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_image_mem</span><span class="p">()</span></pre>
-<pre class='cython code score-19 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_set_image_mem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)</span>
+</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">196</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_image_mem</span><span class="p">()</span></pre>
+<pre class='cython code score-19 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_set_image_mem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_1))) {
@@ -1591,34 +1589,32 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_1, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)</span>
+    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_1, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)</span>
+    __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)</span>
   }
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_ret, __pyx_t_2);
   __pyx_t_2 = 0;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">198</span>:         <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">colorspace</span> <span class="o">=</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span><span class="o">+</span><span class="mf">7</span><span class="p">)</span><span class="o">/</span><span class="mf">8</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">197</span>:         <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">colorspace</span> <span class="o">=</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">bitspixel</span><span class="o">+</span><span class="mf">7</span><span class="p">)</span><span class="o">/</span><span class="mf">8</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_colorspace = __Pyx_div_long((__pyx_v_self-&gt;bitspixel + 7), 8);
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">199</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">198</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_4 = __pyx_v_self-&gt;height;
   (__pyx_v_self-&gt;dims[0]) = __pyx_t_4;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">200</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">199</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_4 = __pyx_v_self-&gt;width;
   (__pyx_v_self-&gt;dims[1]) = __pyx_t_4;
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">201</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="o">=</span><span class="n">colorspace</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">200</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="o">=</span><span class="n">colorspace</span></pre>
 <pre class='cython code score-0 '>  (__pyx_v_self-&gt;dims[2]) = __pyx_v_colorspace;
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">202</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">realloc</span> <span class="o">=</span> <span class="bp">False</span></pre>
-<pre class='cython code score-2 '>  if (<span class='pyx_c_api'>__Pyx_PyObject_SetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_realloc, Py_False) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 202, __pyx_L1_error)</span>
-</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">203</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-2" onclick='toggleDiv(this)'>+<span class="">201</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-2 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_v_ret);
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">204</span>: </pre>
-<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">205</span>:     <span class="k">def</span> <span class="nf">free_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">202</span>: </pre>
+<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">203</span>:     <span class="k">def</span> <span class="nf">free_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_21free_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_21free_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1651,12 +1647,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">206</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_FreeImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">204</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_FreeImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_FreeImageMem(__pyx_v_self-&gt;hCam, __pyx_v_self-&gt;pcImgMem, __pyx_v_self-&gt;pid);
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">207</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Status free_image_mem: &#39;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">205</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Status free_image_mem: &#39;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_free_image_mem);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_free_image_mem);
@@ -1664,12 +1660,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">208</span>: </pre>
-<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">209</span>:     <span class="k">def</span> <span class="nf">set_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">206</span>: </pre>
+<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">207</span>:     <span class="k">def</span> <span class="nf">set_image_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_23set_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_23set_image_mem(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1702,12 +1698,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">210</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">208</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetImageMem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_SetImageMem(__pyx_v_self-&gt;hCam, __pyx_v_self-&gt;pcImgMem, __pyx_v_self-&gt;pid);
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">211</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_image_mem: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)</span>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">209</span>:         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Status set_image_mem: &quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-14 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_kp_s_Status_set_image_mem);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_kp_s_Status_set_image_mem);
@@ -1715,12 +1711,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">212</span>: </pre>
-<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">213</span>:     <span class="k">def</span> <span class="nf">freeze_video</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">210</span>: </pre>
+<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">211</span>:     <span class="k">def</span> <span class="nf">freeze_video</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-1 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_25freeze_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_25freeze_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1746,10 +1742,10 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24freeze_v
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">214</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_FreezeVideo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">212</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_FreezeVideo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_FreezeVideo(__pyx_v_self-&gt;hCam, 1);
-</pre><pre class="cython line score-0">&#xA0;<span class="">215</span>: </pre>
-<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">216</span>:     <span class="k">def</span> <span class="nf">capture_video</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">213</span>: </pre>
+<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">214</span>:     <span class="k">def</span> <span class="nf">capture_video</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-1 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_27capture_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_27capture_video(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1775,10 +1771,10 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26capture_
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">217</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_CaptureVideo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">215</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_CaptureVideo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_CaptureVideo(__pyx_v_self-&gt;hCam, 0);
-</pre><pre class="cython line score-0">&#xA0;<span class="">218</span>: </pre>
-<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">219</span>:     <span class="k">def</span> <span class="nf">freeze_to_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">216</span>: </pre>
+<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">217</span>:     <span class="k">def</span> <span class="nf">freeze_to_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_29freeze_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_29freeze_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1809,8 +1805,8 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">220</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">freeze_video</span><span class="p">()</span></pre>
-<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)</span>
+</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">218</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">freeze_video</span><span class="p">()</span></pre>
+<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_2))) {
@@ -1823,23 +1819,23 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)</span>
   }
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">221</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">219</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
 <pre class='cython code score-6 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">222</span>: </pre>
-<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">223</span>:     <span class="k">def</span> <span class="nf">video_to_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">220</span>: </pre>
+<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">221</span>:     <span class="k">def</span> <span class="nf">video_to_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-3 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_31video_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_31video_to_numpy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1868,15 +1864,15 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30video_to
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">224</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">222</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
 <pre class='cython code score-6 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">225</span>: </pre>
-<pre class="cython line score-16" onclick='toggleDiv(this)'>+<span class="">226</span>:     <span class="k">def</span> <span class="nf">set_exposure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">double</span> <span class="n">exposure</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">223</span>: </pre>
+<pre class="cython line score-16" onclick='toggleDiv(this)'>+<span class="">224</span>:     <span class="k">def</span> <span class="nf">set_exposure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">double</span> <span class="n">exposure</span><span class="p">):</span></pre>
 <pre class='cython code score-16 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33set_exposure(PyObject *__pyx_v_self, PyObject *__pyx_arg_exposure); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33set_exposure(PyObject *__pyx_v_self, PyObject *__pyx_arg_exposure) {
@@ -1885,7 +1881,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33set_expo
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("set_exposure (wrapper)", 0);
   assert(__pyx_arg_exposure); {
-    __pyx_v_exposure = __pyx_<span class='py_c_api'>PyFloat_AsDouble</span>(__pyx_arg_exposure); if (unlikely((__pyx_v_exposure == (double)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 226, __pyx_L3_error)</span>
+    __pyx_v_exposure = __pyx_<span class='py_c_api'>PyFloat_AsDouble</span>(__pyx_arg_exposure); if (unlikely((__pyx_v_exposure == (double)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 224, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1917,29 +1913,29 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32set_expo
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">227</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_Exposure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_EXPOSURE_CMD_SET_EXPOSURE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">exposure</span><span class="p">,</span> <span class="mf">8</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">225</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_Exposure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_EXPOSURE_CMD_SET_EXPOSURE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">exposure</span><span class="p">,</span> <span class="mf">8</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_Exposure(__pyx_v_self-&gt;hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, (&amp;__pyx_v_exposure), 8);
-</pre><pre class="cython line score-12" onclick='toggleDiv(this)'>+<span class="">228</span>:         <span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></pre>
-<pre class='cython code score-12 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)</span>
+</pre><pre class="cython line score-12" onclick='toggleDiv(this)'>+<span class="">226</span>:         <span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></pre>
+<pre class='cython code score-12 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_builtin_print, __pyx_t_2, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">229</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">227</span>:         <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">230</span>: </pre>
-<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">231</span>:     <span class="k">def</span> <span class="nf">get_exposure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">228</span>: </pre>
+<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">229</span>:     <span class="k">def</span> <span class="nf">get_exposure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-3 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_35get_exposure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_35get_exposure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -1970,18 +1966,18 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34get_expo
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">232</span>:         <span class="k">cdef</span> <span class="kt">double</span> <span class="nf">exposure</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">233</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_Exposure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_EXPOSURE_CMD_GET_EXPOSURE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">exposure</span><span class="p">,</span> <span class="mf">8</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">230</span>:         <span class="k">cdef</span> <span class="kt">double</span> <span class="nf">exposure</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">231</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_Exposure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">IS_EXPOSURE_CMD_GET_EXPOSURE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">exposure</span><span class="p">,</span> <span class="mf">8</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_Exposure(__pyx_v_self-&gt;hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, (&amp;__pyx_v_exposure), 8);
-</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">234</span>:         <span class="k">return</span> <span class="n">exposure</span></pre>
+</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">232</span>:         <span class="k">return</span> <span class="n">exposure</span></pre>
 <pre class='cython code score-6 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_v_exposure);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_v_exposure);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">235</span>: </pre>
-<pre class="cython line score-17" onclick='toggleDiv(this)'>+<span class="">236</span>:     <span class="k">def</span> <span class="nf">set_framerate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">double</span> <span class="n">framerate</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">233</span>: </pre>
+<pre class="cython line score-17" onclick='toggleDiv(this)'>+<span class="">234</span>:     <span class="k">def</span> <span class="nf">set_framerate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">double</span> <span class="n">framerate</span><span class="p">):</span></pre>
 <pre class='cython code score-17 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_framerate(PyObject *__pyx_v_self, PyObject *__pyx_arg_framerate); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_framerate(PyObject *__pyx_v_self, PyObject *__pyx_arg_framerate) {
@@ -1990,7 +1986,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_fram
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("set_framerate (wrapper)", 0);
   assert(__pyx_arg_framerate); {
-    __pyx_v_framerate = __pyx_<span class='py_c_api'>PyFloat_AsDouble</span>(__pyx_arg_framerate); if (unlikely((__pyx_v_framerate == (double)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 236, __pyx_L3_error)</span>
+    __pyx_v_framerate = __pyx_<span class='py_c_api'>PyFloat_AsDouble</span>(__pyx_arg_framerate); if (unlikely((__pyx_v_framerate == (double)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 234, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2024,16 +2020,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">237</span>:         <span class="k">cdef</span> <span class="kt">double</span> <span class="nf">new_framrate</span></pre>
-<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">238</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetFrameRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">framerate</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">new_framrate</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">235</span>:         <span class="k">cdef</span> <span class="kt">double</span> <span class="nf">new_framrate</span></pre>
+<pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">236</span>:         <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetFrameRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">framerate</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">new_framrate</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_SetFrameRate(__pyx_v_self-&gt;hCam, __pyx_v_framerate, (&amp;__pyx_v_new_framrate));
-</pre><pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">239</span>:         <span class="k">return</span> <span class="n">new_framrate</span><span class="p">,</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-15" onclick='toggleDiv(this)'>+<span class="">237</span>:         <span class="k">return</span> <span class="n">new_framrate</span><span class="p">,</span> <span class="n">ret</span></pre>
 <pre class='cython code score-15 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_v_new_framrate);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_v_new_framrate);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_3, 0, __pyx_t_1);
@@ -2044,8 +2040,8 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">240</span>: </pre>
-<pre class="cython line score-12" onclick='toggleDiv(this)'>+<span class="">241</span>:     <span class="k">def</span> <span class="nf">set_saturation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span> <span class="n">saturation</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">238</span>: </pre>
+<pre class="cython line score-12" onclick='toggleDiv(this)'>+<span class="">239</span>:     <span class="k">def</span> <span class="nf">set_saturation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span> <span class="n">saturation</span><span class="p">):</span></pre>
 <pre class='cython code score-12 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39set_saturation(PyObject *__pyx_v_self, PyObject *__pyx_arg_saturation); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39set_saturation(PyObject *__pyx_v_self, PyObject *__pyx_arg_saturation) {
@@ -2054,7 +2050,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39set_satu
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("set_saturation (wrapper)", 0);
   assert(__pyx_arg_saturation); {
-    __pyx_v_saturation = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_arg_saturation); if (unlikely((__pyx_v_saturation == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 241, __pyx_L3_error)</span>
+    __pyx_v_saturation = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_arg_saturation); if (unlikely((__pyx_v_saturation == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 239, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2085,17 +2081,17 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38set_satu
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">242</span>:        <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetSaturation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-0" onclick='toggleDiv(this)'>+<span class="">240</span>:        <span class="n">ret</span> <span class="o">=</span> <span class="n">is_SetSaturation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hCam</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span></pre>
 <pre class='cython code score-0 '>  __pyx_v_ret = is_SetSaturation(__pyx_v_self-&gt;hCam, __pyx_v_saturation, __pyx_v_saturation);
-</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">243</span>:        <span class="k">return</span> <span class="n">ret</span></pre>
+</pre><pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">241</span>:        <span class="k">return</span> <span class="n">ret</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_ret);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">244</span>: </pre>
-<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">245</span>:     <span class="k">def</span> <span class="nf">get_saturation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">242</span>: </pre>
+<pre class="cython line score-1" onclick='toggleDiv(this)'>+<span class="">243</span>:     <span class="k">def</span> <span class="nf">get_saturation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-1 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_41get_saturation(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_41get_saturation(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -2120,10 +2116,10 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_40get_satu
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">246</span>:         <span class="k">pass</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">247</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">248</span>:     <span class="c">#Horus help functions</span></pre>
-<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">249</span>:     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">244</span>:         <span class="k">pass</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">245</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">246</span>:     <span class="c">#Horus help functions</span></pre>
+<pre class="cython line score-5" onclick='toggleDiv(this)'>+<span class="">247</span>:     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-5 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_43read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_43read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -2154,8 +2150,8 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">250</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">freeze_video</span><span class="p">()</span></pre>
-<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)</span>
+</pre><pre class="cython line score-19" onclick='toggleDiv(this)'>+<span class="">248</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">freeze_video</span><span class="p">()</span></pre>
+<pre class='cython code score-19 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS &amp;&amp; likely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_2))) {
@@ -2168,19 +2164,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_2, __pyx_t_3);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)</span>
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_CallNoArg</span>(__pyx_t_2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)</span>
   }
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
-</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">251</span>:         <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-14" onclick='toggleDiv(this)'>+<span class="">249</span>:         <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
 <pre class='cython code score-14 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(Py_True);
   <span class='refnanny'>__Pyx_GIVEREF</span>(Py_True);
@@ -2191,8 +2187,8 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">252</span>: </pre>
-<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">253</span>:     <span class="k">def</span> <span class="nf">grab</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">250</span>: </pre>
+<pre class="cython line score-3" onclick='toggleDiv(this)'>+<span class="">251</span>:     <span class="k">def</span> <span class="nf">grab</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-3 '>/* Python wrapper */
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_45grab(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_45grab(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
@@ -2221,9 +2217,9 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_44grab(str
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">254</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
+</pre><pre class="cython line score-6" onclick='toggleDiv(this)'>+<span class="">252</span>:         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">PyArray_SimpleNewFromData</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NPY_UINT8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcImgMem</span><span class="p">)</span></pre>
 <pre class='cython code score-6 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyArray_SimpleNewFromData</span>(3, __pyx_v_self-&gt;dims, NPY_UINT8, __pyx_v_self-&gt;pcImgMem);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;

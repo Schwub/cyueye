@@ -1183,24 +1183,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
 #define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
 #endif
 
-/* PyObjectSetAttrStr.proto */
-#if CYTHON_USE_TYPE_SLOTS
-#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o,n,NULL)
-static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_setattro))
-        return tp->tp_setattro(obj, attr_name, value);
-#if PY_MAJOR_VERSION < 3
-    if (likely(tp->tp_setattr))
-        return tp->tp_setattr(obj, PyString_AS_STRING(attr_name), value);
-#endif
-    return PyObject_SetAttr(obj, attr_name, value);
-}
-#else
-#define __Pyx_PyObject_DelAttrStr(o,n)   PyObject_DelAttr(o,n)
-#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
-#endif
-
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
 #define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
@@ -1244,6 +1226,24 @@ static void __Pyx_WriteUnraisable(const char *name, int clineno,
 
 /* RaiseException.proto */
 static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
+
+/* PyObjectSetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o,n,NULL)
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_setattro))
+        return tp->tp_setattro(obj, attr_name, value);
+#if PY_MAJOR_VERSION < 3
+    if (likely(tp->tp_setattr))
+        return tp->tp_setattr(obj, PyString_AS_STRING(attr_name), value);
+#endif
+    return PyObject_SetAttr(obj, attr_name, value);
+}
+#else
+#define __Pyx_PyObject_DelAttrStr(o,n)   PyObject_DelAttr(o,n)
+#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
+#endif
 
 /* FetchCommonType.proto */
 static PyTypeObject* __Pyx_FetchCommonType(PyTypeObject* type);
@@ -1626,7 +1626,6 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_prepare[] = "__prepare__";
-static const char __pyx_k_realloc[] = "realloc";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_setstate[] = "__setstate__";
@@ -1737,7 +1736,6 @@ static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_range;
-static PyObject *__pyx_n_s_realloc;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
@@ -2093,7 +2091,7 @@ static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct
  *         self.format_id = format_id
  *         self.set_format(self.format_id)             # <<<<<<<<<<<<<<
  *         self.alloc_image_mem()
- *         self.realloc = False
+ *         np.Py_INCREF(np.NPY_UINT8)
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -2151,8 +2149,8 @@ static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct
  *         self.format_id = format_id
  *         self.set_format(self.format_id)
  *         self.alloc_image_mem()             # <<<<<<<<<<<<<<
- *         self.realloc = False
  *         np.Py_INCREF(np.NPY_UINT8)
+ *         np.import_array()
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_alloc_image_mem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -2179,32 +2177,23 @@ static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct
   /* "horus/engine/driver/cyueye/cyueye.pyx":115
  *         self.set_format(self.format_id)
  *         self.alloc_image_mem()
- *         self.realloc = False             # <<<<<<<<<<<<<<
- *         np.Py_INCREF(np.NPY_UINT8)
- *         np.import_array()
- */
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_realloc, Py_False) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
-
-  /* "horus/engine/driver/cyueye/cyueye.pyx":116
- *         self.alloc_image_mem()
- *         self.realloc = False
  *         np.Py_INCREF(np.NPY_UINT8)             # <<<<<<<<<<<<<<
  *         np.import_array()
  *     def __dealloc__(self):
  */
-  __pyx_t_3 = __Pyx_PyInt_From_enum__NPY_TYPES(NPY_UINT8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_enum__NPY_TYPES(NPY_UINT8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   Py_INCREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":117
- *         self.realloc = False
+  /* "horus/engine/driver/cyueye/cyueye.pyx":116
+ *         self.alloc_image_mem()
  *         np.Py_INCREF(np.NPY_UINT8)
  *         np.import_array()             # <<<<<<<<<<<<<<
  *     def __dealloc__(self):
  *         self.free_image_mem()
  */
-  __pyx_t_6 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_6 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 116, __pyx_L1_error)
 
   /* "horus/engine/driver/cyueye/cyueye.pyx":104
  *         IMAGE_FORMAT_LIST* image_format_list
@@ -2230,7 +2219,7 @@ static int __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam___cinit__(struct
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":118
+/* "horus/engine/driver/cyueye/cyueye.pyx":117
  *         np.Py_INCREF(np.NPY_UINT8)
  *         np.import_array()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2256,14 +2245,43 @@ static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(st
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":119
+  /* "horus/engine/driver/cyueye/cyueye.pyx":118
  *         np.import_array()
  *     def __dealloc__(self):
  *         self.free_image_mem()             # <<<<<<<<<<<<<<
  *         self.exit_camera()
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_free_image_mem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_free_image_mem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  if (__pyx_t_3) {
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  }
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "horus/engine/driver/cyueye/cyueye.pyx":119
+ *     def __dealloc__(self):
+ *         self.free_image_mem()
+ *         self.exit_camera()             # <<<<<<<<<<<<<<
+ * 
+ *     def _check_deamon(self):
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_exit_camera); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2285,36 +2303,7 @@ static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(st
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":120
- *     def __dealloc__(self):
- *         self.free_image_mem()
- *         self.exit_camera()             # <<<<<<<<<<<<<<
- * 
- *     def _check_deamon(self):
- */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_exit_camera); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "horus/engine/driver/cyueye/cyueye.pyx":118
+  /* "horus/engine/driver/cyueye/cyueye.pyx":117
  *         np.Py_INCREF(np.NPY_UINT8)
  *         np.import_array()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2333,7 +2322,7 @@ static void __pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_2__dealloc__(st
   __Pyx_RefNannyFinishContext();
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":122
+/* "horus/engine/driver/cyueye/cyueye.pyx":121
  *         self.exit_camera()
  * 
  *     def _check_deamon(self):             # <<<<<<<<<<<<<<
@@ -2366,7 +2355,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_4_check_de
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":126
+/* "horus/engine/driver/cyueye/cyueye.pyx":125
  * 
  * 
  *     def _init_camera(self):             # <<<<<<<<<<<<<<
@@ -2395,7 +2384,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("_init_camera", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":127
+  /* "horus/engine/driver/cyueye/cyueye.pyx":126
  * 
  *     def _init_camera(self):
  *         ret = is_InitCamera(&self.hCam, NULL)             # <<<<<<<<<<<<<<
@@ -2404,16 +2393,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
  */
   __pyx_v_ret = is_InitCamera((&__pyx_v_self->hCam), NULL);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":128
+  /* "horus/engine/driver/cyueye/cyueye.pyx":127
  *     def _init_camera(self):
  *         ret = is_InitCamera(&self.hCam, NULL)
  *         print("Status init_Camera: ", ret)             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_Status_init_Camera);
   __Pyx_GIVEREF(__pyx_kp_s_Status_init_Camera);
@@ -2421,12 +2410,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":129
+  /* "horus/engine/driver/cyueye/cyueye.pyx":128
  *         ret = is_InitCamera(&self.hCam, NULL)
  *         print("Status init_Camera: ", ret)
  *         return ret             # <<<<<<<<<<<<<<
@@ -2434,13 +2423,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
  *     def exit_camera(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":126
+  /* "horus/engine/driver/cyueye/cyueye.pyx":125
  * 
  * 
  *     def _init_camera(self):             # <<<<<<<<<<<<<<
@@ -2460,7 +2449,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_6_init_cam
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":131
+/* "horus/engine/driver/cyueye/cyueye.pyx":130
  *         return ret
  * 
  *     def exit_camera(self):             # <<<<<<<<<<<<<<
@@ -2489,7 +2478,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("exit_camera", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":132
+  /* "horus/engine/driver/cyueye/cyueye.pyx":131
  * 
  *     def exit_camera(self):
  *         ret = is_ExitCamera(self.hCam)             # <<<<<<<<<<<<<<
@@ -2498,16 +2487,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
  */
   __pyx_v_ret = is_ExitCamera(__pyx_v_self->hCam);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":133
+  /* "horus/engine/driver/cyueye/cyueye.pyx":132
  *     def exit_camera(self):
  *         ret = is_ExitCamera(self.hCam)
  *         print("Status exit_camera: ", ret)             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_Status_exit_camera);
   __Pyx_GIVEREF(__pyx_kp_s_Status_exit_camera);
@@ -2515,12 +2504,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":134
+  /* "horus/engine/driver/cyueye/cyueye.pyx":133
  *         ret = is_ExitCamera(self.hCam)
  *         print("Status exit_camera: ", ret)
  *         return ret             # <<<<<<<<<<<<<<
@@ -2528,13 +2517,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
  *     def set_display_mode(self, mode):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":131
+  /* "horus/engine/driver/cyueye/cyueye.pyx":130
  *         return ret
  * 
  *     def exit_camera(self):             # <<<<<<<<<<<<<<
@@ -2554,7 +2543,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_8exit_came
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":136
+/* "horus/engine/driver/cyueye/cyueye.pyx":135
  *         return ret
  * 
  *     def set_display_mode(self, mode):             # <<<<<<<<<<<<<<
@@ -2585,7 +2574,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("set_display_mode", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":137
+  /* "horus/engine/driver/cyueye/cyueye.pyx":136
  * 
  *     def set_display_mode(self, mode):
  *         if mode is 'dib':             # <<<<<<<<<<<<<<
@@ -2596,7 +2585,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":138
+    /* "horus/engine/driver/cyueye/cyueye.pyx":137
  *     def set_display_mode(self, mode):
  *         if mode is 'dib':
  *             ret = is_SetDisplayMode(self.hCam, IS_SET_DM_DIB)             # <<<<<<<<<<<<<<
@@ -2605,7 +2594,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
  */
     __pyx_v_ret = is_SetDisplayMode(__pyx_v_self->hCam, IS_SET_DM_DIB);
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":137
+    /* "horus/engine/driver/cyueye/cyueye.pyx":136
  * 
  *     def set_display_mode(self, mode):
  *         if mode is 'dib':             # <<<<<<<<<<<<<<
@@ -2615,7 +2604,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
     goto __pyx_L3;
   }
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":140
+  /* "horus/engine/driver/cyueye/cyueye.pyx":139
  *             ret = is_SetDisplayMode(self.hCam, IS_SET_DM_DIB)
  *         else:
  *             raise ValueError(mode, " is not supported")             # <<<<<<<<<<<<<<
@@ -2623,7 +2612,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
  * 
  */
   /*else*/ {
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_mode);
     __Pyx_GIVEREF(__pyx_v_mode);
@@ -2631,25 +2620,25 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
     __Pyx_INCREF(__pyx_kp_s_is_not_supported);
     __Pyx_GIVEREF(__pyx_kp_s_is_not_supported);
     PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_kp_s_is_not_supported);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 140, __pyx_L1_error)
+    __PYX_ERR(0, 139, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":141
+  /* "horus/engine/driver/cyueye/cyueye.pyx":140
  *         else:
  *             raise ValueError(mode, " is not supported")
  *         print("Status set_display_moded: ", ret)             # <<<<<<<<<<<<<<
  * 
  *     def set_color_mode(self, mode):
  */
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_kp_s_Status_set_display_moded);
   __Pyx_GIVEREF(__pyx_kp_s_Status_set_display_moded);
@@ -2657,12 +2646,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":136
+  /* "horus/engine/driver/cyueye/cyueye.pyx":135
  *         return ret
  * 
  *     def set_display_mode(self, mode):             # <<<<<<<<<<<<<<
@@ -2684,7 +2673,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_10set_disp
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":143
+/* "horus/engine/driver/cyueye/cyueye.pyx":142
  *         print("Status set_display_moded: ", ret)
  * 
  *     def set_color_mode(self, mode):             # <<<<<<<<<<<<<<
@@ -2705,7 +2694,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_13set_colo
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":146
+/* "horus/engine/driver/cyueye/cyueye.pyx":145
  * 
  *         class color_mode_options():
  *             def __init__(self, ueye_camera_mode, bitspixel):             # <<<<<<<<<<<<<<
@@ -2748,17 +2737,17 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ueye_camera_mode)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 145, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_bitspixel)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 145, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 146, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 145, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2773,7 +2762,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 146, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 145, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("horus.engine.driver.cyueye.cyueye.Cam.set_color_mode.color_mode_options.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2791,25 +2780,25 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":147
+  /* "horus/engine/driver/cyueye/cyueye.pyx":146
  *         class color_mode_options():
  *             def __init__(self, ueye_camera_mode, bitspixel):
  *                 self.ueye_camera_mode = ueye_camera_mode             # <<<<<<<<<<<<<<
  *                 self.bitspixel = bitspixel
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_ueye_camera_mode, __pyx_v_ueye_camera_mode) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_ueye_camera_mode, __pyx_v_ueye_camera_mode) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":148
+  /* "horus/engine/driver/cyueye/cyueye.pyx":147
  *             def __init__(self, ueye_camera_mode, bitspixel):
  *                 self.ueye_camera_mode = ueye_camera_mode
  *                 self.bitspixel = bitspixel             # <<<<<<<<<<<<<<
  * 
  *         options = {
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_bitspixel, __pyx_v_bitspixel) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_bitspixel, __pyx_v_bitspixel) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":146
+  /* "horus/engine/driver/cyueye/cyueye.pyx":145
  * 
  *         class color_mode_options():
  *             def __init__(self, ueye_camera_mode, bitspixel):             # <<<<<<<<<<<<<<
@@ -2829,7 +2818,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_colo
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":143
+/* "horus/engine/driver/cyueye/cyueye.pyx":142
  *         print("Status set_display_moded: ", ret)
  * 
  *     def set_color_mode(self, mode):             # <<<<<<<<<<<<<<
@@ -2851,53 +2840,53 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("set_color_mode", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":145
+  /* "horus/engine/driver/cyueye/cyueye.pyx":144
  *     def set_color_mode(self, mode):
  * 
  *         class color_mode_options():             # <<<<<<<<<<<<<<
  *             def __init__(self, ueye_camera_mode, bitspixel):
  *                 self.ueye_camera_mode = ueye_camera_mode
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_color_mode_options, __pyx_n_s_set_color_mode_locals_color_mode, (PyObject *) NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_color_mode_options, __pyx_n_s_set_color_mode_locals_color_mode, (PyObject *) NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":146
+  /* "horus/engine/driver/cyueye/cyueye.pyx":145
  * 
  *         class color_mode_options():
  *             def __init__(self, ueye_camera_mode, bitspixel):             # <<<<<<<<<<<<<<
  *                 self.ueye_camera_mode = ueye_camera_mode
  *                 self.bitspixel = bitspixel
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__, 0, __pyx_n_s_set_color_mode_locals_color_mode_2, NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_color_mode_18color_mode_options_1__init__, 0, __pyx_n_s_set_color_mode_locals_color_mode_2, NULL, __pyx_n_s_horus_engine_driver_cyueye_cyuey, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":145
+  /* "horus/engine/driver/cyueye/cyueye.pyx":144
  *     def set_color_mode(self, mode):
  * 
  *         class color_mode_options():             # <<<<<<<<<<<<<<
  *             def __init__(self, ueye_camera_mode, bitspixel):
  *                 self.ueye_camera_mode = ueye_camera_mode
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_color_mode_options, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_color_mode_options, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_color_mode_options = __pyx_t_2;
   __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":151
+  /* "horus/engine/driver/cyueye/cyueye.pyx":150
  * 
  *         options = {
  *             'bgr8_packed': color_mode_options(IS_CM_BGR8_PACKED, 24)             # <<<<<<<<<<<<<<
  *         }
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(IS_CM_BGR8_PACKED); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(IS_CM_BGR8_PACKED); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
@@ -2905,58 +2894,58 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
   __Pyx_GIVEREF(__pyx_int_24);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_24);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_v_color_mode_options, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_v_color_mode_options, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_bgr8_packed, __pyx_t_2) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_bgr8_packed, __pyx_t_2) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_options = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":155
+  /* "horus/engine/driver/cyueye/cyueye.pyx":154
  * 
  * 
  *         if mode in options:             # <<<<<<<<<<<<<<
  *             ret = is_SetColorMode(self.hCam, options[mode].ueye_camera_mode)
  *             self.bitspixel = options[mode].bitspixel
  */
-  __pyx_t_4 = (__Pyx_PyDict_ContainsTF(__pyx_v_mode, __pyx_v_options, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyDict_ContainsTF(__pyx_v_mode, __pyx_v_options, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 154, __pyx_L1_error)
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":156
+    /* "horus/engine/driver/cyueye/cyueye.pyx":155
  * 
  *         if mode in options:
  *             ret = is_SetColorMode(self.hCam, options[mode].ueye_camera_mode)             # <<<<<<<<<<<<<<
  *             self.bitspixel = options[mode].bitspixel
  *         else:
  */
-    __pyx_t_1 = __Pyx_PyDict_GetItem(__pyx_v_options, __pyx_v_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItem(__pyx_v_options, __pyx_v_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ueye_camera_mode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ueye_camera_mode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_ret = is_SetColorMode(__pyx_v_self->hCam, __pyx_t_6);
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":157
+    /* "horus/engine/driver/cyueye/cyueye.pyx":156
  *         if mode in options:
  *             ret = is_SetColorMode(self.hCam, options[mode].ueye_camera_mode)
  *             self.bitspixel = options[mode].bitspixel             # <<<<<<<<<<<<<<
  *         else:
  *             raise ValueError(mode, " is no colormode")
  */
-    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_options, __pyx_v_mode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_options, __pyx_v_mode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_bitspixel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_bitspixel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 157, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_self->bitspixel = __pyx_t_6;
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":155
+    /* "horus/engine/driver/cyueye/cyueye.pyx":154
  * 
  * 
  *         if mode in options:             # <<<<<<<<<<<<<<
@@ -2966,7 +2955,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
     goto __pyx_L3;
   }
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":159
+  /* "horus/engine/driver/cyueye/cyueye.pyx":158
  *             self.bitspixel = options[mode].bitspixel
  *         else:
  *             raise ValueError(mode, " is no colormode")             # <<<<<<<<<<<<<<
@@ -2974,7 +2963,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
  *         return ret
  */
   /*else*/ {
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_v_mode);
     __Pyx_GIVEREF(__pyx_v_mode);
@@ -2982,25 +2971,25 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
     __Pyx_INCREF(__pyx_kp_s_is_no_colormode);
     __Pyx_GIVEREF(__pyx_kp_s_is_no_colormode);
     PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_s_is_no_colormode);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 159, __pyx_L1_error)
+    __PYX_ERR(0, 158, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":160
+  /* "horus/engine/driver/cyueye/cyueye.pyx":159
  *         else:
  *             raise ValueError(mode, " is no colormode")
  *         print("Status set_color_mode: ", ret)             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_kp_s_Status_set_color_mode);
   __Pyx_GIVEREF(__pyx_kp_s_Status_set_color_mode);
@@ -3008,12 +2997,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":161
+  /* "horus/engine/driver/cyueye/cyueye.pyx":160
  *             raise ValueError(mode, " is no colormode")
  *         print("Status set_color_mode: ", ret)
  *         return ret             # <<<<<<<<<<<<<<
@@ -3021,13 +3010,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
  *     def set_format(self, int format_id):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":143
+  /* "horus/engine/driver/cyueye/cyueye.pyx":142
  *         print("Status set_display_moded: ", ret)
  * 
  *     def set_color_mode(self, mode):             # <<<<<<<<<<<<<<
@@ -3050,7 +3039,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_12set_colo
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":163
+/* "horus/engine/driver/cyueye/cyueye.pyx":162
  *         return ret
  * 
  *     def set_format(self, int format_id):             # <<<<<<<<<<<<<<
@@ -3066,7 +3055,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_15set_form
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_format (wrapper)", 0);
   assert(__pyx_arg_format_id); {
-    __pyx_v_format_id = __Pyx_PyInt_As_int(__pyx_arg_format_id); if (unlikely((__pyx_v_format_id == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L3_error)
+    __pyx_v_format_id = __Pyx_PyInt_As_int(__pyx_arg_format_id); if (unlikely((__pyx_v_format_id == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 162, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3095,7 +3084,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   unsigned int __pyx_t_6;
   __Pyx_RefNannySetupContext("set_format", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":166
+  /* "horus/engine/driver/cyueye/cyueye.pyx":165
  *         cdef unsigned int i
  *         cdef IMAGE_FORMAT_INFO format_info
  *         for i in range(self.image_format_list.nNumListElements):             # <<<<<<<<<<<<<<
@@ -3106,7 +3095,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":167
+    /* "horus/engine/driver/cyueye/cyueye.pyx":166
  *         cdef IMAGE_FORMAT_INFO format_info
  *         for i in range(self.image_format_list.nNumListElements):
  *             format_info = self.image_format_list.FormatInfo[i]             # <<<<<<<<<<<<<<
@@ -3115,7 +3104,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
  */
     __pyx_v_format_info = (__pyx_v_self->image_format_list->FormatInfo[__pyx_v_i]);
 
-    /* "horus/engine/driver/cyueye/cyueye.pyx":168
+    /* "horus/engine/driver/cyueye/cyueye.pyx":167
  *         for i in range(self.image_format_list.nNumListElements):
  *             format_info = self.image_format_list.FormatInfo[i]
  *             if format_id is format_info.nFormatID:             # <<<<<<<<<<<<<<
@@ -3125,7 +3114,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
     __pyx_t_3 = ((__pyx_v_format_id == __pyx_v_format_info.nFormatID) != 0);
     if (__pyx_t_3) {
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":169
+      /* "horus/engine/driver/cyueye/cyueye.pyx":168
  *             format_info = self.image_format_list.FormatInfo[i]
  *             if format_id is format_info.nFormatID:
  *                 ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_SET_FORMAT, &format_id, 4)             # <<<<<<<<<<<<<<
@@ -3134,16 +3123,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
  */
       __pyx_v_ret = is_ImageFormat(__pyx_v_self->hCam, IMGFRMT_CMD_SET_FORMAT, (&__pyx_v_format_id), 4);
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":170
+      /* "horus/engine/driver/cyueye/cyueye.pyx":169
  *             if format_id is format_info.nFormatID:
  *                 ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_SET_FORMAT, &format_id, 4)
  *                 print("Status set_format: ", ret)             # <<<<<<<<<<<<<<
  *                 self.height = format_info.nHeight
  *                 self.width = format_info.nWidth
  */
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_kp_s_Status_set_format);
       __Pyx_GIVEREF(__pyx_kp_s_Status_set_format);
@@ -3151,12 +3140,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
       __Pyx_GIVEREF(__pyx_t_4);
       PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_4);
       __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":171
+      /* "horus/engine/driver/cyueye/cyueye.pyx":170
  *                 ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_SET_FORMAT, &format_id, 4)
  *                 print("Status set_format: ", ret)
  *                 self.height = format_info.nHeight             # <<<<<<<<<<<<<<
@@ -3166,7 +3155,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
       __pyx_t_6 = __pyx_v_format_info.nHeight;
       __pyx_v_self->height = __pyx_t_6;
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":172
+      /* "horus/engine/driver/cyueye/cyueye.pyx":171
  *                 print("Status set_format: ", ret)
  *                 self.height = format_info.nHeight
  *                 self.width = format_info.nWidth             # <<<<<<<<<<<<<<
@@ -3176,7 +3165,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
       __pyx_t_6 = __pyx_v_format_info.nWidth;
       __pyx_v_self->width = __pyx_t_6;
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":173
+      /* "horus/engine/driver/cyueye/cyueye.pyx":172
  *                 self.height = format_info.nHeight
  *                 self.width = format_info.nWidth
  *                 return ret             # <<<<<<<<<<<<<<
@@ -3184,13 +3173,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
  * 
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 172, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_r = __pyx_t_4;
       __pyx_t_4 = 0;
       goto __pyx_L0;
 
-      /* "horus/engine/driver/cyueye/cyueye.pyx":168
+      /* "horus/engine/driver/cyueye/cyueye.pyx":167
  *         for i in range(self.image_format_list.nNumListElements):
  *             format_info = self.image_format_list.FormatInfo[i]
  *             if format_id is format_info.nFormatID:             # <<<<<<<<<<<<<<
@@ -3200,16 +3189,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
     }
   }
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":174
+  /* "horus/engine/driver/cyueye/cyueye.pyx":173
  *                 self.width = format_info.nWidth
  *                 return ret
  *         raise ValueError("Format: ", format_id, "is not supported on your camera")             # <<<<<<<<<<<<<<
  * 
  *     def get_supported_formats(self):
  */
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_format_id); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_format_id); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_kp_s_Format);
   __Pyx_GIVEREF(__pyx_kp_s_Format);
@@ -3220,14 +3209,14 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   __Pyx_GIVEREF(__pyx_kp_s_is_not_supported_on_your_camera);
   PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_kp_s_is_not_supported_on_your_camera);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_Raise(__pyx_t_4, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __PYX_ERR(0, 174, __pyx_L1_error)
+  __PYX_ERR(0, 173, __pyx_L1_error)
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":163
+  /* "horus/engine/driver/cyueye/cyueye.pyx":162
  *         return ret
  * 
  *     def set_format(self, int format_id):             # <<<<<<<<<<<<<<
@@ -3247,7 +3236,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_14set_form
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":176
+/* "horus/engine/driver/cyueye/cyueye.pyx":175
  *         raise ValueError("Format: ", format_id, "is not supported on your camera")
  * 
  *     def get_supported_formats(self):             # <<<<<<<<<<<<<<
@@ -3282,7 +3271,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("get_supported_formats", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":178
+  /* "horus/engine/driver/cyueye/cyueye.pyx":177
  *     def get_supported_formats(self):
  *         cdef unsigned int count
  *         cdef unsigned int bytesneeded = sizeof(IMAGE_FORMAT_LIST)             # <<<<<<<<<<<<<<
@@ -3291,7 +3280,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_bytesneeded = (sizeof(IMAGE_FORMAT_LIST));
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":179
+  /* "horus/engine/driver/cyueye/cyueye.pyx":178
  *         cdef unsigned int count
  *         cdef unsigned int bytesneeded = sizeof(IMAGE_FORMAT_LIST)
  *         ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_GET_NUM_ENTRIES, &count, sizeof(count))             # <<<<<<<<<<<<<<
@@ -3300,7 +3289,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_ret = is_ImageFormat(__pyx_v_self->hCam, IMGFRMT_CMD_GET_NUM_ENTRIES, (&__pyx_v_count), (sizeof(__pyx_v_count)));
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":180
+  /* "horus/engine/driver/cyueye/cyueye.pyx":179
  *         cdef unsigned int bytesneeded = sizeof(IMAGE_FORMAT_LIST)
  *         ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_GET_NUM_ENTRIES, &count, sizeof(count))
  *         bytesneeded += (count - 1) * sizeof(IMAGE_FORMAT_INFO)             # <<<<<<<<<<<<<<
@@ -3309,7 +3298,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_bytesneeded = (__pyx_v_bytesneeded + ((__pyx_v_count - 1) * (sizeof(IMAGE_FORMAT_INFO))));
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":182
+  /* "horus/engine/driver/cyueye/cyueye.pyx":181
  *         bytesneeded += (count - 1) * sizeof(IMAGE_FORMAT_INFO)
  *         cdef void* ptr
  *         ptr = malloc(bytesneeded)             # <<<<<<<<<<<<<<
@@ -3318,7 +3307,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_ptr = malloc(__pyx_v_bytesneeded);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":183
+  /* "horus/engine/driver/cyueye/cyueye.pyx":182
  *         cdef void* ptr
  *         ptr = malloc(bytesneeded)
  *         cdef IMAGE_FORMAT_LIST* pformatList = <IMAGE_FORMAT_LIST *> ptr             # <<<<<<<<<<<<<<
@@ -3327,7 +3316,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_pformatList = ((IMAGE_FORMAT_LIST *)__pyx_v_ptr);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":184
+  /* "horus/engine/driver/cyueye/cyueye.pyx":183
  *         ptr = malloc(bytesneeded)
  *         cdef IMAGE_FORMAT_LIST* pformatList = <IMAGE_FORMAT_LIST *> ptr
  *         pformatList.nSizeOfListEntry = sizeof(IMAGE_FORMAT_INFO)             # <<<<<<<<<<<<<<
@@ -3336,7 +3325,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_pformatList->nSizeOfListEntry = (sizeof(IMAGE_FORMAT_INFO));
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":185
+  /* "horus/engine/driver/cyueye/cyueye.pyx":184
  *         cdef IMAGE_FORMAT_LIST* pformatList = <IMAGE_FORMAT_LIST *> ptr
  *         pformatList.nSizeOfListEntry = sizeof(IMAGE_FORMAT_INFO)
  *         pformatList.nNumListElements = count             # <<<<<<<<<<<<<<
@@ -3345,7 +3334,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_pformatList->nNumListElements = __pyx_v_count;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":186
+  /* "horus/engine/driver/cyueye/cyueye.pyx":185
  *         pformatList.nSizeOfListEntry = sizeof(IMAGE_FORMAT_INFO)
  *         pformatList.nNumListElements = count
  *         ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_GET_LIST, pformatList, bytesneeded)             # <<<<<<<<<<<<<<
@@ -3354,7 +3343,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_ret = is_ImageFormat(__pyx_v_self->hCam, IMGFRMT_CMD_GET_LIST, __pyx_v_pformatList, __pyx_v_bytesneeded);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":187
+  /* "horus/engine/driver/cyueye/cyueye.pyx":186
  *         pformatList.nNumListElements = count
  *         ret = is_ImageFormat(self.hCam, IMGFRMT_CMD_GET_LIST, pformatList, bytesneeded)
  *         cdef unsigned int i, n = pformatList.nNumListElements             # <<<<<<<<<<<<<<
@@ -3364,7 +3353,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   __pyx_t_1 = __pyx_v_pformatList->nNumListElements;
   __pyx_v_n = __pyx_t_1;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":189
+  /* "horus/engine/driver/cyueye/cyueye.pyx":188
  *         cdef unsigned int i, n = pformatList.nNumListElements
  *         cdef IMAGE_FORMAT_INFO formatInfo
  *         self.image_format_list = pformatList             # <<<<<<<<<<<<<<
@@ -3373,16 +3362,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  */
   __pyx_v_self->image_format_list = __pyx_v_pformatList;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":190
+  /* "horus/engine/driver/cyueye/cyueye.pyx":189
  *         cdef IMAGE_FORMAT_INFO formatInfo
  *         self.image_format_list = pformatList
  *         print("Status get_supported_formats", ret)             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_kp_s_Status_get_supported_formats);
   __Pyx_GIVEREF(__pyx_kp_s_Status_get_supported_formats);
@@ -3390,12 +3379,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":191
+  /* "horus/engine/driver/cyueye/cyueye.pyx":190
  *         self.image_format_list = pformatList
  *         print("Status get_supported_formats", ret)
  *         return ret             # <<<<<<<<<<<<<<
@@ -3403,13 +3392,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":176
+  /* "horus/engine/driver/cyueye/cyueye.pyx":175
  *         raise ValueError("Format: ", format_id, "is not supported on your camera")
  * 
  *     def get_supported_formats(self):             # <<<<<<<<<<<<<<
@@ -3429,7 +3418,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_16get_supp
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":194
+/* "horus/engine/driver/cyueye/cyueye.pyx":193
  * 
  * 
  *     def alloc_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3461,26 +3450,26 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("alloc_image_mem", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":195
+  /* "horus/engine/driver/cyueye/cyueye.pyx":194
  * 
  *     def alloc_image_mem(self):
  *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)             # <<<<<<<<<<<<<<
  *         print("Status alloc_image_mem: ", ret)
  *         ret = self.set_image_mem()
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(is_AllocImageMem(__pyx_v_self->hCam, __pyx_v_self->width, __pyx_v_self->height, __pyx_v_self->bitspixel, (&__pyx_v_self->pcImgMem), (&__pyx_v_self->pid))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(is_AllocImageMem(__pyx_v_self->hCam, __pyx_v_self->width, __pyx_v_self->height, __pyx_v_self->bitspixel, (&__pyx_v_self->pcImgMem), (&__pyx_v_self->pid))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":196
+  /* "horus/engine/driver/cyueye/cyueye.pyx":195
  *     def alloc_image_mem(self):
  *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
  *         print("Status alloc_image_mem: ", ret)             # <<<<<<<<<<<<<<
  *         ret = self.set_image_mem()
  *         cdef int colorspace = ((self.bitspixel+7)/8)
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_kp_s_Status_alloc_image_mem);
   __Pyx_GIVEREF(__pyx_kp_s_Status_alloc_image_mem);
@@ -3488,19 +3477,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   __Pyx_INCREF(__pyx_v_ret);
   __Pyx_GIVEREF(__pyx_v_ret);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_ret);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":197
+  /* "horus/engine/driver/cyueye/cyueye.pyx":196
  *         ret = is_AllocImageMem(self.hCam, self.width, self.height, self.bitspixel, &self.pcImgMem, &self.pid)
  *         print("Status alloc_image_mem: ", ret)
  *         ret = self.set_image_mem()             # <<<<<<<<<<<<<<
  *         cdef int colorspace = ((self.bitspixel+7)/8)
  *         self.dims[0]=self.height
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_image_mem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_image_mem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -3513,17 +3502,17 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF_SET(__pyx_v_ret, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":198
+  /* "horus/engine/driver/cyueye/cyueye.pyx":197
  *         print("Status alloc_image_mem: ", ret)
  *         ret = self.set_image_mem()
  *         cdef int colorspace = ((self.bitspixel+7)/8)             # <<<<<<<<<<<<<<
@@ -3532,7 +3521,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
  */
   __pyx_v_colorspace = __Pyx_div_long((__pyx_v_self->bitspixel + 7), 8);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":199
+  /* "horus/engine/driver/cyueye/cyueye.pyx":198
  *         ret = self.set_image_mem()
  *         cdef int colorspace = ((self.bitspixel+7)/8)
  *         self.dims[0]=self.height             # <<<<<<<<<<<<<<
@@ -3542,37 +3531,28 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   __pyx_t_4 = __pyx_v_self->height;
   (__pyx_v_self->dims[0]) = __pyx_t_4;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":200
+  /* "horus/engine/driver/cyueye/cyueye.pyx":199
  *         cdef int colorspace = ((self.bitspixel+7)/8)
  *         self.dims[0]=self.height
  *         self.dims[1]=self.width             # <<<<<<<<<<<<<<
  *         self.dims[2]=colorspace
- *         self.realloc = False
+ *         return ret
  */
   __pyx_t_4 = __pyx_v_self->width;
   (__pyx_v_self->dims[1]) = __pyx_t_4;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":201
+  /* "horus/engine/driver/cyueye/cyueye.pyx":200
  *         self.dims[0]=self.height
  *         self.dims[1]=self.width
  *         self.dims[2]=colorspace             # <<<<<<<<<<<<<<
- *         self.realloc = False
- *         return ret
- */
-  (__pyx_v_self->dims[2]) = __pyx_v_colorspace;
-
-  /* "horus/engine/driver/cyueye/cyueye.pyx":202
- *         self.dims[1]=self.width
- *         self.dims[2]=colorspace
- *         self.realloc = False             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_realloc, Py_False) < 0) __PYX_ERR(0, 202, __pyx_L1_error)
+  (__pyx_v_self->dims[2]) = __pyx_v_colorspace;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":203
+  /* "horus/engine/driver/cyueye/cyueye.pyx":201
+ *         self.dims[1]=self.width
  *         self.dims[2]=colorspace
- *         self.realloc = False
  *         return ret             # <<<<<<<<<<<<<<
  * 
  *     def free_image_mem(self):
@@ -3582,7 +3562,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":194
+  /* "horus/engine/driver/cyueye/cyueye.pyx":193
  * 
  * 
  *     def alloc_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3604,7 +3584,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_18alloc_im
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":205
+/* "horus/engine/driver/cyueye/cyueye.pyx":203
  *         return ret
  * 
  *     def free_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3633,7 +3613,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("free_image_mem", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":206
+  /* "horus/engine/driver/cyueye/cyueye.pyx":204
  * 
  *     def free_image_mem(self):
  *         ret = is_FreeImageMem(self.hCam, self.pcImgMem, self.pid)             # <<<<<<<<<<<<<<
@@ -3642,16 +3622,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
  */
   __pyx_v_ret = is_FreeImageMem(__pyx_v_self->hCam, __pyx_v_self->pcImgMem, __pyx_v_self->pid);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":207
+  /* "horus/engine/driver/cyueye/cyueye.pyx":205
  *     def free_image_mem(self):
  *         ret = is_FreeImageMem(self.hCam, self.pcImgMem, self.pid)
  *         print('Status free_image_mem: ', ret)             # <<<<<<<<<<<<<<
  * 
  *     def set_image_mem(self):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_Status_free_image_mem);
   __Pyx_GIVEREF(__pyx_kp_s_Status_free_image_mem);
@@ -3659,12 +3639,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":205
+  /* "horus/engine/driver/cyueye/cyueye.pyx":203
  *         return ret
  * 
  *     def free_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3686,7 +3666,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_20free_ima
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":209
+/* "horus/engine/driver/cyueye/cyueye.pyx":207
  *         print('Status free_image_mem: ', ret)
  * 
  *     def set_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3715,7 +3695,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("set_image_mem", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":210
+  /* "horus/engine/driver/cyueye/cyueye.pyx":208
  * 
  *     def set_image_mem(self):
  *         ret = is_SetImageMem(self.hCam, self.pcImgMem, self.pid)             # <<<<<<<<<<<<<<
@@ -3724,16 +3704,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
  */
   __pyx_v_ret = is_SetImageMem(__pyx_v_self->hCam, __pyx_v_self->pcImgMem, __pyx_v_self->pid);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":211
+  /* "horus/engine/driver/cyueye/cyueye.pyx":209
  *     def set_image_mem(self):
  *         ret = is_SetImageMem(self.hCam, self.pcImgMem, self.pid)
  *         print("Status set_image_mem: ", ret)             # <<<<<<<<<<<<<<
  * 
  *     def freeze_video(self):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_Status_set_image_mem);
   __Pyx_GIVEREF(__pyx_kp_s_Status_set_image_mem);
@@ -3741,12 +3721,12 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":209
+  /* "horus/engine/driver/cyueye/cyueye.pyx":207
  *         print('Status free_image_mem: ', ret)
  * 
  *     def set_image_mem(self):             # <<<<<<<<<<<<<<
@@ -3768,7 +3748,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_22set_imag
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":213
+/* "horus/engine/driver/cyueye/cyueye.pyx":211
  *         print("Status set_image_mem: ", ret)
  * 
  *     def freeze_video(self):             # <<<<<<<<<<<<<<
@@ -3795,7 +3775,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24freeze_v
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("freeze_video", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":214
+  /* "horus/engine/driver/cyueye/cyueye.pyx":212
  * 
  *     def freeze_video(self):
  *         ret = is_FreezeVideo(self.hCam, 1)             # <<<<<<<<<<<<<<
@@ -3804,7 +3784,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24freeze_v
  */
   __pyx_v_ret = is_FreezeVideo(__pyx_v_self->hCam, 1);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":213
+  /* "horus/engine/driver/cyueye/cyueye.pyx":211
  *         print("Status set_image_mem: ", ret)
  * 
  *     def freeze_video(self):             # <<<<<<<<<<<<<<
@@ -3819,7 +3799,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_24freeze_v
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":216
+/* "horus/engine/driver/cyueye/cyueye.pyx":214
  *         ret = is_FreezeVideo(self.hCam, 1)
  * 
  *     def capture_video(self):             # <<<<<<<<<<<<<<
@@ -3846,7 +3826,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26capture_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("capture_video", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":217
+  /* "horus/engine/driver/cyueye/cyueye.pyx":215
  * 
  *     def capture_video(self):
  *         ret = is_CaptureVideo(self.hCam, 0)             # <<<<<<<<<<<<<<
@@ -3855,7 +3835,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26capture_
  */
   __pyx_v_ret = is_CaptureVideo(__pyx_v_self->hCam, 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":216
+  /* "horus/engine/driver/cyueye/cyueye.pyx":214
  *         ret = is_FreezeVideo(self.hCam, 1)
  * 
  *     def capture_video(self):             # <<<<<<<<<<<<<<
@@ -3870,7 +3850,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_26capture_
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":219
+/* "horus/engine/driver/cyueye/cyueye.pyx":217
  *         ret = is_CaptureVideo(self.hCam, 0)
  * 
  *     def freeze_to_numpy(self):             # <<<<<<<<<<<<<<
@@ -3899,14 +3879,14 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("freeze_to_numpy", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":220
+  /* "horus/engine/driver/cyueye/cyueye.pyx":218
  * 
  *     def freeze_to_numpy(self):
  *         self.freeze_video()             # <<<<<<<<<<<<<<
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3919,16 +3899,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":221
+  /* "horus/engine/driver/cyueye/cyueye.pyx":219
  *     def freeze_to_numpy(self):
  *         self.freeze_video()
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)             # <<<<<<<<<<<<<<
@@ -3936,13 +3916,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
  *     def video_to_numpy(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":219
+  /* "horus/engine/driver/cyueye/cyueye.pyx":217
  *         ret = is_CaptureVideo(self.hCam, 0)
  * 
  *     def freeze_to_numpy(self):             # <<<<<<<<<<<<<<
@@ -3963,7 +3943,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_28freeze_t
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":223
+/* "horus/engine/driver/cyueye/cyueye.pyx":221
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def video_to_numpy(self):             # <<<<<<<<<<<<<<
@@ -3990,7 +3970,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30video_to
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("video_to_numpy", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":224
+  /* "horus/engine/driver/cyueye/cyueye.pyx":222
  * 
  *     def video_to_numpy(self):
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)             # <<<<<<<<<<<<<<
@@ -3998,13 +3978,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30video_to
  *     def set_exposure(self, double exposure):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":223
+  /* "horus/engine/driver/cyueye/cyueye.pyx":221
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def video_to_numpy(self):             # <<<<<<<<<<<<<<
@@ -4023,7 +4003,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_30video_to
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":226
+/* "horus/engine/driver/cyueye/cyueye.pyx":224
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def set_exposure(self, double exposure):             # <<<<<<<<<<<<<<
@@ -4039,7 +4019,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_33set_expo
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_exposure (wrapper)", 0);
   assert(__pyx_arg_exposure); {
-    __pyx_v_exposure = __pyx_PyFloat_AsDouble(__pyx_arg_exposure); if (unlikely((__pyx_v_exposure == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L3_error)
+    __pyx_v_exposure = __pyx_PyFloat_AsDouble(__pyx_arg_exposure); if (unlikely((__pyx_v_exposure == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4062,7 +4042,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32set_expo
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("set_exposure", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":227
+  /* "horus/engine/driver/cyueye/cyueye.pyx":225
  * 
  *     def set_exposure(self, double exposure):
  *         ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, &exposure, 8)             # <<<<<<<<<<<<<<
@@ -4071,26 +4051,26 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32set_expo
  */
   __pyx_v_ret = is_Exposure(__pyx_v_self->hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, (&__pyx_v_exposure), 8);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":228
+  /* "horus/engine/driver/cyueye/cyueye.pyx":226
  *     def set_exposure(self, double exposure):
  *         ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, &exposure, 8)
  *         print(ret)             # <<<<<<<<<<<<<<
  *         return ret
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":229
+  /* "horus/engine/driver/cyueye/cyueye.pyx":227
  *         ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_SET_EXPOSURE, &exposure, 8)
  *         print(ret)
  *         return ret             # <<<<<<<<<<<<<<
@@ -4098,13 +4078,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32set_expo
  *     def get_exposure(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":226
+  /* "horus/engine/driver/cyueye/cyueye.pyx":224
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def set_exposure(self, double exposure):             # <<<<<<<<<<<<<<
@@ -4124,7 +4104,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_32set_expo
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":231
+/* "horus/engine/driver/cyueye/cyueye.pyx":229
  *         return ret
  * 
  *     def get_exposure(self):             # <<<<<<<<<<<<<<
@@ -4153,7 +4133,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34get_expo
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_exposure", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":233
+  /* "horus/engine/driver/cyueye/cyueye.pyx":231
  *     def get_exposure(self):
  *         cdef double exposure
  *         ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, &exposure, 8)             # <<<<<<<<<<<<<<
@@ -4162,7 +4142,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34get_expo
  */
   __pyx_v_ret = is_Exposure(__pyx_v_self->hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, (&__pyx_v_exposure), 8);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":234
+  /* "horus/engine/driver/cyueye/cyueye.pyx":232
  *         cdef double exposure
  *         ret = is_Exposure(self.hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, &exposure, 8)
  *         return exposure             # <<<<<<<<<<<<<<
@@ -4170,13 +4150,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34get_expo
  *     def set_framerate(self, double framerate):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_exposure); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_exposure); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":231
+  /* "horus/engine/driver/cyueye/cyueye.pyx":229
  *         return ret
  * 
  *     def get_exposure(self):             # <<<<<<<<<<<<<<
@@ -4195,7 +4175,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_34get_expo
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":236
+/* "horus/engine/driver/cyueye/cyueye.pyx":234
  *         return exposure
  * 
  *     def set_framerate(self, double framerate):             # <<<<<<<<<<<<<<
@@ -4211,7 +4191,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_37set_fram
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_framerate (wrapper)", 0);
   assert(__pyx_arg_framerate); {
-    __pyx_v_framerate = __pyx_PyFloat_AsDouble(__pyx_arg_framerate); if (unlikely((__pyx_v_framerate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L3_error)
+    __pyx_v_framerate = __pyx_PyFloat_AsDouble(__pyx_arg_framerate); if (unlikely((__pyx_v_framerate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 234, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4236,7 +4216,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("set_framerate", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":238
+  /* "horus/engine/driver/cyueye/cyueye.pyx":236
  *     def set_framerate(self, double framerate):
  *         cdef double new_framrate
  *         ret = is_SetFrameRate(self.hCam, framerate, &new_framrate)             # <<<<<<<<<<<<<<
@@ -4245,7 +4225,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
  */
   __pyx_v_ret = is_SetFrameRate(__pyx_v_self->hCam, __pyx_v_framerate, (&__pyx_v_new_framrate));
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":239
+  /* "horus/engine/driver/cyueye/cyueye.pyx":237
  *         cdef double new_framrate
  *         ret = is_SetFrameRate(self.hCam, framerate, &new_framrate)
  *         return new_framrate, ret             # <<<<<<<<<<<<<<
@@ -4253,11 +4233,11 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
  *     def set_saturation(self, int saturation):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_new_framrate); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_new_framrate); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -4269,7 +4249,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":236
+  /* "horus/engine/driver/cyueye/cyueye.pyx":234
  *         return exposure
  * 
  *     def set_framerate(self, double framerate):             # <<<<<<<<<<<<<<
@@ -4290,7 +4270,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_36set_fram
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":241
+/* "horus/engine/driver/cyueye/cyueye.pyx":239
  *         return new_framrate, ret
  * 
  *     def set_saturation(self, int saturation):             # <<<<<<<<<<<<<<
@@ -4306,7 +4286,7 @@ static PyObject *__pyx_pw_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_39set_satu
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_saturation (wrapper)", 0);
   assert(__pyx_arg_saturation); {
-    __pyx_v_saturation = __Pyx_PyInt_As_int(__pyx_arg_saturation); if (unlikely((__pyx_v_saturation == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 241, __pyx_L3_error)
+    __pyx_v_saturation = __Pyx_PyInt_As_int(__pyx_arg_saturation); if (unlikely((__pyx_v_saturation == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 239, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4328,7 +4308,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38set_satu
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_saturation", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":242
+  /* "horus/engine/driver/cyueye/cyueye.pyx":240
  * 
  *     def set_saturation(self, int saturation):
  *        ret = is_SetSaturation(self.hCam, saturation, saturation)             # <<<<<<<<<<<<<<
@@ -4337,7 +4317,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38set_satu
  */
   __pyx_v_ret = is_SetSaturation(__pyx_v_self->hCam, __pyx_v_saturation, __pyx_v_saturation);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":243
+  /* "horus/engine/driver/cyueye/cyueye.pyx":241
  *     def set_saturation(self, int saturation):
  *        ret = is_SetSaturation(self.hCam, saturation, saturation)
  *        return ret             # <<<<<<<<<<<<<<
@@ -4345,13 +4325,13 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38set_satu
  *     def get_saturation(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":241
+  /* "horus/engine/driver/cyueye/cyueye.pyx":239
  *         return new_framrate, ret
  * 
  *     def set_saturation(self, int saturation):             # <<<<<<<<<<<<<<
@@ -4370,7 +4350,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_38set_satu
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":245
+/* "horus/engine/driver/cyueye/cyueye.pyx":243
  *        return ret
  * 
  *     def get_saturation(self):             # <<<<<<<<<<<<<<
@@ -4403,7 +4383,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_40get_satu
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":249
+/* "horus/engine/driver/cyueye/cyueye.pyx":247
  * 
  *     #Horus help functions
  *     def read(self):             # <<<<<<<<<<<<<<
@@ -4432,14 +4412,14 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("read", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":250
+  /* "horus/engine/driver/cyueye/cyueye.pyx":248
  *     #Horus help functions
  *     def read(self):
  *         self.freeze_video()             # <<<<<<<<<<<<<<
  *         return True, np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_freeze_video); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4452,16 +4432,16 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":251
+  /* "horus/engine/driver/cyueye/cyueye.pyx":249
  *     def read(self):
  *         self.freeze_video()
  *         return True, np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)             # <<<<<<<<<<<<<<
@@ -4469,9 +4449,9 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
  *     def grab(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(Py_True);
   __Pyx_GIVEREF(Py_True);
@@ -4483,7 +4463,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":249
+  /* "horus/engine/driver/cyueye/cyueye.pyx":247
  * 
  *     #Horus help functions
  *     def read(self):             # <<<<<<<<<<<<<<
@@ -4504,7 +4484,7 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_42read(str
   return __pyx_r;
 }
 
-/* "horus/engine/driver/cyueye/cyueye.pyx":253
+/* "horus/engine/driver/cyueye/cyueye.pyx":251
  *         return True, np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def grab(self):             # <<<<<<<<<<<<<<
@@ -4530,19 +4510,19 @@ static PyObject *__pyx_pf_5horus_6engine_6driver_6cyueye_6cyueye_3Cam_44grab(str
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("grab", 0);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":254
+  /* "horus/engine/driver/cyueye/cyueye.pyx":252
  * 
  *     def grab(self):
  *         return np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __pyx_t_1 = PyArray_SimpleNewFromData(3, __pyx_v_self->dims, NPY_UINT8, __pyx_v_self->pcImgMem); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":253
+  /* "horus/engine/driver/cyueye/cyueye.pyx":251
  *         return True, np.PyArray_SimpleNewFromData(3, self.dims, np.NPY_UINT8, self.pcImgMem)
  * 
  *     def grab(self):             # <<<<<<<<<<<<<<
@@ -7466,7 +7446,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
-  {&__pyx_n_s_realloc, __pyx_k_realloc, sizeof(__pyx_k_realloc), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
@@ -7485,9 +7464,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 128, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 140, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 165, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 823, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1013, __pyx_L1_error)
@@ -7511,17 +7490,17 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "horus/engine/driver/cyueye/cyueye.pyx":146
+  /* "horus/engine/driver/cyueye/cyueye.pyx":145
  * 
  *         class color_mode_options():
  *             def __init__(self, ueye_camera_mode, bitspixel):             # <<<<<<<<<<<<<<
  *                 self.ueye_camera_mode = ueye_camera_mode
  *                 self.bitspixel = bitspixel
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_ueye_camera_mode, __pyx_n_s_bitspixel); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_ueye_camera_mode, __pyx_n_s_bitspixel); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cyueye_pyx, __pyx_n_s_init, 146, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cyueye_pyx, __pyx_n_s_init, 145, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 145, __pyx_L1_error)
 
   /* "(tree fragment)":2
  * def __reduce_cython__(self):

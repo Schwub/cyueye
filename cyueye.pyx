@@ -112,7 +112,6 @@ cdef class Cam:
         self.format_id = format_id
         self.set_format(self.format_id)
         self.alloc_image_mem()
-        self.realloc = False
         np.Py_INCREF(np.NPY_UINT8)
         np.import_array()
     def __dealloc__(self):
@@ -199,7 +198,6 @@ cdef class Cam:
         self.dims[0]=self.height
         self.dims[1]=self.width
         self.dims[2]=colorspace
-        self.realloc = False
         return ret
 
     def free_image_mem(self):
