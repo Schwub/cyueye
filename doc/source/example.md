@@ -1,0 +1,5 @@
+# Example
+This is a example how to use this package to capture a video from your *IDS uEye* camera.
+
+
+
