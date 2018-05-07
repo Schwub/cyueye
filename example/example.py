@@ -1,10 +1,7 @@
 import sys
 sys.path.insert(0, "../src")
 import cyueye as cu
-import pprint
 import cv2
-import numpy as np
-
 
 #Init Cam
 cam = cu.Cam(format_id=8)
